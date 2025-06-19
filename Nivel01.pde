@@ -2,6 +2,8 @@ class Nivel01 {
 
   Personaje personaje;
   SpawnerDinosaurio spawnerVelociraptor;
+  SpawnerDinosaurio spawnerPterodactilo;
+  
 
   public Nivel01() {
     personaje = new Personaje(
@@ -11,6 +13,7 @@ class Nivel01 {
       6, //vidas
       color(#1C3E98)); //color
     spawnerVelociraptor = new SpawnerDinosaurio();
+    spawnerPterodactilo = new SpawnerDinosaurio();
   }
 
   public void iniciar() {
@@ -20,6 +23,8 @@ class Nivel01 {
     spawnerVelociraptor.actualizarVelociraptor();
     spawnerVelociraptor.dibujar();
     
+    spawnerPterodactilo.actualizarPterodactilo();
+    spawnerPterodactilo.dibujar();
   }
 
   public void mover() {

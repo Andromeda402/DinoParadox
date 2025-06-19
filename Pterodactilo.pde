@@ -1,0 +1,65 @@
+class Pterodactilo extends Dinosaurio{
+  
+  boolean cambioSentido;
+  int tiempoSoltarFruta;
+  ArrayList<Fruta> fruta;
+  
+  public Pterodactilo(PVector posicion, PVector tamanio, int vida, float velocidad, int danio){
+    super(posicion, tamanio, vida, velocidad, danio);
+    this.fruta = new ArrayList<Fruta>();
+  }
+  
+  public void dibujar(){
+    fill(#FFA500);
+    ellipse(posicion.x, posicion.y, tamanio.x, tamanio.y);
+    
+    for (Fruta f : fruta) {
+      f.dibujar();
+    }
+    
+  }
+  
+  public void mover() {
+    if (cambioSentido == true) {
+      posicion.x += velocidad;
+      if (posicion.x + tamanio.x / 2 >= width) {
+        cambioSentido = false;
+      }
+    } else {
+      posicion.x -= velocidad;
+      if (posicion.x - tamanio.x / 2 <= 0) {
+        cambioSentido = true;
+      }
+    }
+    
+    tiempoSoltarFruta +=1;
+    
+    if (tiempoSoltarFruta >= 220) { // cada 2 segundos 
+      soltarFruta();
+      tiempoSoltarFruta = 0;
+    }
+
+    for (int i = fruta.size() - 1; i >= 0; i--) {
+      Fruta f = fruta.get(i);
+      f.mover();
+      if (f.detonar) {
+        fruta.remove(i);
+      }
+    }
+    
+    
+    
+  }
+  
+  public void soltarFruta() {
+    fruta.add(new Fruta(new PVector(posicion.x, posicion.y), new PVector(15, 15)));
+  }
+  
+  
+  
+  public boolean conVida() {
+    return vida > 0;
+  }
+  
+  
+}
