@@ -19,7 +19,7 @@ class Pterodactilo extends Dinosaurio{
     
   }
   
-  public void mover() {
+  public void mover(Personaje personaje) {
     if (cambioSentido == true) {
       posicion.x += velocidad;
       if (posicion.x + tamanio.x / 2 >= width) {
@@ -42,8 +42,10 @@ class Pterodactilo extends Dinosaurio{
     for (int i = fruta.size() - 1; i >= 0; i--) {
       Fruta f = fruta.get(i);
       f.mover();
+      f.explotar(personaje); 
       if (f.detonar) {
         fruta.remove(i);
+        println("fruta eliminada");
       }
     }
     
@@ -54,6 +56,7 @@ class Pterodactilo extends Dinosaurio{
   public void soltarFruta() {
     fruta.add(new Fruta(new PVector(posicion.x, posicion.y), new PVector(15, 15)));
   }
+  
   
   
   

@@ -23,8 +23,14 @@ class Nivel01 {
     spawnerVelociraptor.actualizarVelociraptor();
     spawnerVelociraptor.dibujar();
     
-    spawnerPterodactilo.actualizarPterodactilo();
+    spawnerPterodactilo.actualizarPterodactilo(personaje);
     spawnerPterodactilo.dibujar();
+    
+    for (Velociraptor velociraptor : spawnerVelociraptor.velociraptor) {
+    velociraptor.chocar(personaje);
+  }
+    
+    
   }
 
   public void mover() {

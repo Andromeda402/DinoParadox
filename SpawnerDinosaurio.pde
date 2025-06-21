@@ -87,7 +87,7 @@ class SpawnerDinosaurio {
    
   }
     
-    public void actualizarPterodactilo(){
+    public void actualizarPterodactilo(Personaje personaje){
       //Pterodactilo
    contadorP++;
    if(contadorP >= tiempoRecargaP){
@@ -99,7 +99,7 @@ class SpawnerDinosaurio {
       Pterodactilo p = pterodactilo.get(i);
       if (p != null) {
 
-        p.mover();
+        p.mover(personaje);
         if (p.conVida() == false) {
 
           pterodactilo.remove(i);

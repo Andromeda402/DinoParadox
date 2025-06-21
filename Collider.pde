@@ -10,22 +10,26 @@ class Collider{
   }
   
   public boolean hayColision(Collider collider){
-    
-    //distancia al cuadrado entre los centros
-    float dx = this.posicion.x - collider.posicion.x;
-    float dy = this.posicion.y - collider.posicion.y;
-    
-    float distanciaCuadrada = dx * dx + dy * dy;
-    
-    //calcula los radios en X y en Y del collider
-    float sumaRadioObjeto = (this.tamanio.x + this.tamanio.y)/ 2;
-    float sumaRadioCollider = (collider.tamanio.x + collider.tamanio.y)/ 2;
-    float sumaRadios = sumaRadioObjeto + sumaRadioCollider;
-    float sumaRadiosCuadrada = sumaRadios * sumaRadios;
-    
-    return distanciaCuadrada <= sumaRadiosCuadrada;
-    
-  }
+  
+  // distancia al cuadrado entre los centros
+  float dx = this.posicion.x - collider.posicion.x;
+  float dy = this.posicion.y - collider.posicion.y;
+  float distanciaCuadrada = dx * dx + dy * dy;
+
+  // calcula los radios promedio (más precisos que el promedio de diámetros)
+  float radioObjetoX = this.tamanio.x / 2.0;
+  float radioObjetoY = this.tamanio.y / 2.0;
+  float sumaRadioObjeto = (radioObjetoX + radioObjetoY) / 2.0;
+
+  float radioColliderX = collider.tamanio.x / 2.0;
+  float radioColliderY = collider.tamanio.y / 2.0;
+  float sumaRadioCollider = (radioColliderX + radioColliderY) / 2.0;
+
+  float sumaRadios = sumaRadioObjeto + sumaRadioCollider;
+  float sumaRadiosCuadrada = sumaRadios * sumaRadios;
+
+  return distanciaCuadrada <= sumaRadiosCuadrada;
+}
   
   
   

@@ -22,6 +22,7 @@ class Personaje extends GameObject {
     fill(#1C3E98);
     noStroke();
     ellipse(posicion.x, posicion.y, tamanio.x, tamanio.y);
+    println(vida);
   }
 
   public void mover(String direccion) {

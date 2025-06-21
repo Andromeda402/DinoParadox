@@ -1,8 +1,10 @@
 class Velociraptor extends Dinosaurio{
   
+  Collider colliderVelociraptor;
   
   public Velociraptor(PVector posicion, PVector tamanio, int vida, float velocidad, int danio){
     super(posicion, tamanio, vida, velocidad, danio);
+    colliderVelociraptor = new Collider(this.posicion, this.tamanio);
   }
   
   public void dibujar(){
@@ -15,7 +17,20 @@ class Velociraptor extends Dinosaurio{
     
   }
   
-  public boolean conVida() {
+  
+
+  
+  public void chocar(Personaje personaje){
+    Collider colliderPersonaje = new Collider(personaje.posicion, personaje.tamanio);
+    
+    if(colliderPersonaje.hayColision(colliderVelociraptor)){
+      personaje.vida -= this.danio;
+      this.vida  = 0;
+    }
+  }
+  
+  
+    public boolean conVida() {
     return vida > 0;
   }
   

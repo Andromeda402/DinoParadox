@@ -2,10 +2,14 @@ class Fruta extends GameObject{
   
   float velocidadCaida;
   boolean detonar;
+  int danio;
+  Collider colliderFruta;
   
   public Fruta(PVector posicion, PVector tamanio){
     super(posicion, tamanio);
     this.velocidadCaida = 1;
+    this.danio = 1;
+    this.colliderFruta = new Collider(this.posicion, this.tamanio);
   }
   
   public void dibujar(){
@@ -22,7 +26,14 @@ class Fruta extends GameObject{
     }
   }
   
-  
+  public void explotar(Personaje personaje){
+    Collider colliderPersonaje = new Collider(personaje.posicion, personaje.tamanio);
+    
+    if(colliderPersonaje.hayColision(colliderFruta)){
+      personaje.vida -= this.danio;
+      detonar = true;
+    }
+  }
   
   
   
