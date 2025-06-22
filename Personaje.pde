@@ -4,7 +4,7 @@ class Personaje extends GameObject {
   int vida;
   color colorPersonaje;
   boolean izquierda, derecha, arriba, abajo;
-
+  ArrayList<Bala> bala;
 
   public Personaje(PVector posicion, PVector tamanio, float velocidad, int vida, color colorPersonaje) {
     super(posicion, tamanio);
@@ -15,6 +15,7 @@ class Personaje extends GameObject {
     this.abajo = false;
     this.izquierda = false;
     this.derecha = false;
+    this.bala = new ArrayList<Bala>();
   }
 
   public void dibujar() {
@@ -56,39 +57,47 @@ class Personaje extends GameObject {
   }
 
   public void keyPressed() {
-    if (keyCode == UP) {
+    if (key == 'w' || key == 'W') {
       arriba = true;
     }
 
-    if (keyCode == DOWN) {
+    if (key == 's' || key == 'S') {
       abajo = true;
     }
 
-    if (keyCode == RIGHT) {
+    if (key == 'd' || key == 'D') {
       derecha = true;
     }
 
-    if (keyCode == LEFT) {
+    if (key== 'a' || key == 'A') {
       izquierda = true;
     }
   }
 
   public void keyReleased() {
 
-    if (keyCode == UP) {
+    if (key == 'w' || key == 'W') {
       arriba = false;
     }
 
-    if (keyCode == DOWN) {
+    if (key == 's' || key == 'S') {
       abajo = false;
     }
 
-    if (keyCode == RIGHT) {
+    if (key == 'd' || key == 'D') {
       derecha = false;
     }
 
-    if (keyCode == LEFT) {
+    if (key== 'a' || key == 'A') {
       izquierda = false;
     }
+  }
+
+  public void disparar() {
+    bala.add(new Bala(
+      new PVector(this.posicion.x, this.posicion.y),
+      new PVector(10, 10),
+      new PVector(mouseX, mouseY)
+      ));
   }
 }
