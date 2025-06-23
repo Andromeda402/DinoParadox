@@ -5,6 +5,9 @@ class Personaje extends GameObject {
   color colorPersonaje;
   boolean izquierda, derecha, arriba, abajo;
   ArrayList<Bala> bala;
+  int estadoAnimacion;
+  
+  SpriteRenderer spriteRenderer;
 
   public Personaje(PVector posicion, PVector tamanio, float velocidad, int vida, color colorPersonaje) {
     super(posicion, tamanio);
@@ -16,18 +19,37 @@ class Personaje extends GameObject {
     this.izquierda = false;
     this.derecha = false;
     this.bala = new ArrayList<Bala>();
+    
+    
+    this.estadoAnimacion = MaquinaEstadosAnimacion.ANIMACION_QUIETO;
+    this.spriteRenderer = new SpriteRenderer(this); //this es el personaje actual que se esta creando
+                                                    //permite al renderer que pueda acceder a su posicion y tamanio
+    
   }
 
   public void dibujar() {
 
-    fill(#1C3E98);
+    /*fill(#1C3E98);
     noStroke();
     ellipse(posicion.x, posicion.y, tamanio.x, tamanio.y);
-    println(vida);
+    println(vida);*/
+    
+    if (vida <= 0) {
+    estadoAnimacion = MaquinaEstadosAnimacion.ANIMACION_MUERTE;
+  } else if (!arriba && !abajo && !izquierda && !derecha && estadoAnimacion != MaquinaEstadosAnimacion.ANIMACION_ATAQUE) {
+    estadoAnimacion = MaquinaEstadosAnimacion.ANIMACION_QUIETO;
+  }
+
+  spriteRenderer.mostrarAnimacion(estadoAnimacion);
+ 
+
   }
 
   public void mover(String direccion) {
-
+    
+    
+    
+    
     switch(direccion) {
 
     case "arriba":
@@ -45,12 +67,14 @@ class Personaje extends GameObject {
     case "izquierda":
       {
         posicion.x -= velocidad;
+        estadoAnimacion = MaquinaEstadosAnimacion.ANIMACION_CAMINAR_IZQUIERDA;
         break;
       }
 
     case "derecha":
       {
         posicion.x += velocidad;
+        estadoAnimacion = MaquinaEstadosAnimacion.ANIMACION_CAMINAR_DERECHA;
         break;
       }
     }

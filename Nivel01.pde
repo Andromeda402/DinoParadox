@@ -16,6 +16,10 @@ class Nivel01 {
     spawnerVelociraptor = new SpawnerDinosaurio();
     spawnerPterodactilo = new SpawnerDinosaurio();
     spawnerTriceratops = new SpawnerDinosaurio();
+    
+    personaje.spriteRenderer.cambiarImagen(spritePersonaje);
+    
+    
   }
 
   public void iniciar() {
