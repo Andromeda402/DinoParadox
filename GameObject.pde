@@ -7,4 +7,11 @@ class GameObject {
     this.posicion = posicion;
     this.tamanio = tamanio;
   }
+  
+  public void dibujar(){};
+  
+  public void mover(){};
+  
+  
+  
 }

@@ -40,11 +40,11 @@ class Pterodactilo extends Dinosaurio {
 
     for (int i = fruta.size() - 1; i >= 0; i--) {
       Fruta f = fruta.get(i);
-      f.mover();
+      f.mover(1);
       f.explotar(personaje);
       if (f.detonar) {
         fruta.remove(i);
-        println("fruta eliminada");
+        //println("fruta eliminada");
       }
     }
   }

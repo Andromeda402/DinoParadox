@@ -11,6 +11,12 @@ class SpawnerDinosaurio {
   ArrayList<Triceratops> triceratops;
   int tiempoRecargaT;
   int contadorT;
+  
+  ArrayList<Matriarca> matriarca;
+  int tiempoRecargaM;
+  int contadorM;
+  boolean matriarcaGenerada;
+  
 
   public SpawnerDinosaurio() {
     this.velociraptor = new ArrayList<Velociraptor>();
@@ -22,6 +28,12 @@ class SpawnerDinosaurio {
     this.contadorV = 0;
     this.contadorP = 0;
     this.contadorT = 0;
+    
+    this.matriarca = new ArrayList<Matriarca>();
+    this.tiempoRecargaM = 100; //sin usar
+    this.contadorM = 0; //sin usar
+    this.matriarcaGenerada = false;
+    
   }
 
   public void dibujar() {
@@ -36,6 +48,11 @@ class SpawnerDinosaurio {
     for (Triceratops t : triceratops) {
       t.dibujar();
     }
+    
+    for (Matriarca m : matriarca) {
+      m.dibujar();
+    }
+    
   }
 
   public void generarVelociraptor() {
@@ -84,7 +101,21 @@ class SpawnerDinosaurio {
     }
   }
   
-  
+  public void generarMatriarca(){
+    
+    Matriarca m = new Matriarca(
+      new PVector(0, random(300, height - 50)),
+      new PVector(100, 100),
+      20,
+      0.30,
+      1
+      );
+
+    for (int i = 0; i < 1; i++) {
+      matriarca.add(m);
+      
+    }
+  }
   
 
 
@@ -104,7 +135,7 @@ class SpawnerDinosaurio {
 
         v.mover();
         if (v.conVida() == false) {
-
+          
           velociraptor.remove(i);
         }
       }
@@ -125,7 +156,7 @@ class SpawnerDinosaurio {
 
         p.mover(personaje);
         if (p.conVida() == false) {
-
+          
           pterodactilo.remove(i);
         }
       }
@@ -146,10 +177,33 @@ class SpawnerDinosaurio {
 
         t.mover(personaje);
         if (t.conVida() == false) {
-
+          
           triceratops.remove(i);
         }
       }
+    }
+  }
+  
+  public void actualizarMatriarca(Personaje personaje) {
+    //Triceratops
+    contadorM++;
+    if (!matriarcaGenerada) {
+      generarMatriarca();
+      matriarcaGenerada = true; // SOLO UNA VEZ
+    }
+
+    for (int i = matriarca.size() - 1; i >= 0; i--) {
+      Matriarca m = matriarca.get(i);
+      if (m != null) {
+        m.mover(personaje);
+        m.atacar(personaje);
+        m.dispararFruta(personaje);
+
+        if (!m.conVida()) {
+          matriarca.remove(i);
+        }
+      }
+      
     }
   }
   

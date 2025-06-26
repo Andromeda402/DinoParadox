@@ -4,6 +4,7 @@ class Triceratops extends Dinosaurio {
   
   public Triceratops(PVector posicion, PVector tamanio, int vida, float velocidad, int danio) {
     super(posicion, tamanio, vida, velocidad, danio);
+    colliderTriceratops = new Collider(this.posicion, this.tamanio);
   }
 
   public void dibujar() {
