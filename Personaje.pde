@@ -26,6 +26,11 @@ class Personaje extends GameObject {
                                                     //permite al renderer que pueda acceder a su posicion y tamanio
     
   }
+  
+  //esto agregue
+  public void setSpriteImage(PImage img) {
+    spriteRenderer.cambiarImagen(img);
+}
 
   public void dibujar() {
 

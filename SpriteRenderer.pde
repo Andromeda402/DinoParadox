@@ -27,12 +27,20 @@ class SpriteRenderer {
   }
 
   // Cargar imagen del sprite sheet
-  public void cambiarImagen(PImage nuevaImagen) {
+ /* public void cambiarImagen(PImage nuevaImagen) {
     this.spriteSheet = nuevaImagen;
     this.columnas = spriteSheet.width / anchoFrame;
     this.hayImagen = true;
     this.frameActual = 0;
     this.contadorFrames = 0;
+  }*/
+  void cambiarImagen(PImage nuevaImagen) {
+    if (nuevaImagen != null) {
+      spriteSheet = nuevaImagen;
+      columnas = spriteSheet.width / anchoFrame;  // Aquí NO va a dar error si la imagen existe
+    } else {
+      println("ERROR: La imagen es null, revisa que esté en la carpeta data y el nombre sea correcto.");
+    }
   }
 
   // Mostrar la animacion segun el estado

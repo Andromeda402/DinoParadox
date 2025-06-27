@@ -2,11 +2,11 @@ class Nivel02 {
 
   Personaje personaje;
   SpawnerDinosaurio spawnerMatriarca;
-  
+  SpriteRenderer spriteRendererer;// esto agregue
   
 
 
-  public Nivel02() {
+  public Nivel02(PImage spritePersonaje) {
     personaje = new Personaje(
       new PVector (300, 400), //posicion
       new PVector(40, 40), //tamanio
@@ -15,12 +15,8 @@ class Nivel02 {
       color(#1C3E98)); //color
     spawnerMatriarca = new SpawnerDinosaurio();
   
-    
-    personaje.spriteRenderer.cambiarImagen(spritePersonaje);
-    
-    
-    
-    
+   // spriteRenderer = new SpriteRenderer();//esto agregue
+    personaje.spriteRenderer.cambiarImagen(spritePersonaje); 
   }
 
   public void iniciar() {

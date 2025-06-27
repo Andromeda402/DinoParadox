@@ -1,5 +1,5 @@
 class Nivel01 {
-
+ 
   Personaje personaje;
   SpawnerDinosaurio spawnerVelociraptor;
   SpawnerDinosaurio spawnerPterodactilo;
@@ -8,7 +8,7 @@ class Nivel01 {
   int contadorEliminaciones = 0;
 
 
-  public Nivel01() {
+  public Nivel01(PImage spritePersonaje) {
     personaje = new Personaje(
       new PVector (300, 400), //posicion
       new PVector(40, 40), //tamanio
