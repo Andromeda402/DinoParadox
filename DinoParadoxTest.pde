@@ -1,50 +1,4 @@
 
-
-/*
-Nivel01 nivel01;
- Nivel02 nivel02;
- int estadoJuego;
- PImage spritePersonaje;
- pantallaMenu = new PantallaMenu(fondoMenu, cientifico);
- pantallaIntro = new PantallaIntro(fondoIntro, cientifico);
- 
- 
- 
- public void setup() {
- size(800, 600);
- //esto creo q es
- estadoJuego = MaquinaEstadosJuego.MENU;
- 
- spritePersonaje = loadImage("Personaje.png");
- 
- println("Elimina 10 dinosaurios");
- nivel01 = new Nivel01();
- nivel02 = new Nivel02();
- estadoJuego = 0;
- 
- }*/
-/*
-PantallaMenu pantallaMenu;
- PantallaIntro pantallaIntro;
- PImage fondoMenu, fondoIntro, cientifico;
- 
- public void setup() {
- size(800, 600);
- 
- // Cargar imágenes necesarias
- fondoMenu = loadImage("fondo_menu.png");
- fondoIntro = loadImage("fondo_intro.png");
- cientifico = loadImage("cientifico.png");
- 
- pantallaMenu = new PantallaMenu(fondoMenu, cientifico);
- pantallaIntro = new PantallaIntro(fondoIntro, cientifico);
- 
- nivel01 = new Nivel01();
- nivel02 = new Nivel02();
- 
- estadoJuego = MaquinaEstadosJuego.MENU; // Asegura que el juego empiece por el menú
- }
- */
 // Variables globales
 PImage spritePersonaje;
 PantallaMenu pantallaMenu;
@@ -58,13 +12,12 @@ PImage fondoIntro;
 PImage cientifico;
 
 
-
 public void setup() {
   size(800, 600);
 
   fondoMenu = loadImage("fondo_menu.jpg");
   fondoIntro = loadImage("fondo_intro.jpg");
-  cientifico = loadImage("cientifico.png");
+  cientifico = loadImage("cientifico2.jpeg");
   cientifico.resize(100, 0);
   spritePersonaje = loadImage("Personaje.png");//esto agregue
 
