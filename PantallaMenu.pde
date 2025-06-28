@@ -1,16 +1,16 @@
 class PantallaMenu extends Pantalla {
-  Boton botonJugar;
-  Boton botonSalir;
-  PImage cientifico;
+  private Boton botonJugar;
+  private Boton botonSalir;
+  private PImage cientifico;
 
-  PantallaMenu(PImage fondo, PImage cientifico) {
+  public PantallaMenu(PImage fondo, PImage cientifico) {
     super(fondo);
     this.cientifico = cientifico;
     botonJugar = new Boton("Jugar", width/2 - 75, 250, 150, 40);
     botonSalir = new Boton("Salir", width/2 - 75, 310, 150, 40);
   }
 
-  void dibujar() {
+  public void dibujar() {
     dibujarFondo();
 
     fill(255);
@@ -31,11 +31,37 @@ class PantallaMenu extends Pantalla {
     botonSalir.dibujar();
   }
 
-  void mousePressed(float mx, float my) {
+  public void mousePressed(float mx, float my) {
     if (botonJugar.estaSobre(mx, my)) {
       estadoJuego = MaquinaEstadosJuego.INTRO;
     } else if (botonSalir.estaSobre(mx, my)) {
       exit();
     }
   }
+  
+  
+  public Boton getBotonJugar(){
+    return botonJugar;
+  }
+  
+  public void setBotonJugar(Boton nuevoBotonJugar){
+    this.botonJugar = nuevoBotonJugar;
+  }
+  
+  public Boton getBotonSalir(){
+    return botonSalir;
+  }
+  
+  public void setBotonSalir(Boton nuevoBotonSalir){
+    this.botonSalir = nuevoBotonSalir;
+  }
+  
+  public PImage getCientifico(){
+    return cientifico;
+  }
+  
+  public void setCientifico(PImage nuevoCientifico){
+    this.cientifico = nuevoCientifico;
+  }
+  
 }

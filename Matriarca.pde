@@ -1,9 +1,10 @@
-class Matriarca extends Dinosaurio {
+class Matriarca extends Dinosaurio {  //reutilizacion del spawner de los 
+                                      //dinosaurios para generar a la matriarca
 
-  Collider colliderMatriarca;
-  int tiempoSoltarFruta;
-  ArrayList<Fruta> fruta;
-  int limiteFruta;
+  private Collider colliderMatriarca;
+  private int tiempoSoltarFruta;
+  private ArrayList<Fruta> fruta;
+  private int limiteFruta;
   
   public Matriarca (PVector posicion, PVector tamanio, int vida, float velocidad, int danio) {
     super(posicion, tamanio, vida, velocidad, danio);
@@ -67,10 +68,32 @@ class Matriarca extends Dinosaurio {
   }
 
 
-
-
-
   public boolean conVida() {
     return vida > 0;
   }
+  
+  public Collider getColliderMatriarca(){
+    return colliderMatriarca;
+  }
+  
+  public void setColliderMatriarca(Collider nuevoColliderMatriarca){
+    this.colliderMatriarca = nuevoColliderMatriarca;
+  }
+  
+  public ArrayList getFruta(){
+    return fruta;
+  }
+  
+  public void setFruta(ArrayList nuevaFruta){
+    this.fruta = nuevaFruta;
+  }
+  
+  public int getlimiteFruta(){
+    return limiteFruta;
+  }
+  
+  public void setLimiteFruta(int nuevoLimiteFruta){
+    this.limiteFruta = nuevoLimiteFruta;
+  }
+  
 }

@@ -1,9 +1,9 @@
 class PantallaJuego extends Pantalla {
-  PantallaJuego(PImage fondo) {
+  public PantallaJuego(PImage fondo) {
     super(fondo);
   }
 
-  void dibujar() {
+  public void dibujar() {
     dibujarFondo();
 
     fill(255);
@@ -12,7 +12,7 @@ class PantallaJuego extends Pantalla {
     text("¡El juego ha comenzado!", width/2, 30);
   }
 
-  void mousePressed(float mx, float my) {
+  public void mousePressed(float mx, float my) {
     // Implementar si es necesario
   }
 }

@@ -10,7 +10,7 @@ class Boton {
     this.h = h;
   }
 
-  void dibujar() {
+  public void dibujar() {
     if (estaSobre(mouseX, mouseY)) {
       fill(100, 200, 255);
     } else {
@@ -24,15 +24,24 @@ class Boton {
     text(etiqueta, x + w/2, y + h/2);
   }
 
-  boolean estaSobre(float mx, float my) {
+  public boolean estaSobre(float mx, float my) {
     return mx > x && mx < x + w && my > y && my < y + h;
   }
 
-  String getEtiqueta() {
+  public String getEtiqueta() {
     return etiqueta;
   }
 
-  void setEtiqueta(String nuevaEtiqueta) {
+  public void setEtiqueta(String nuevaEtiqueta) {
     this.etiqueta = nuevaEtiqueta;
   }
+  
+  
+
+  
+  
+  
+  
+  
+  
 }

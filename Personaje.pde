@@ -1,13 +1,13 @@
 class Personaje extends GameObject {
 
-  float velocidad;
-  int vida;
-  color colorPersonaje;
-  boolean izquierda, derecha, arriba, abajo;
-  ArrayList<Bala> bala;
-  int estadoAnimacion;
+  private float velocidad;
+  private int vida;
+  private color colorPersonaje;
+  private boolean izquierda, derecha, arriba, abajo;
+  private ArrayList<Bala> bala;
+  private int estadoAnimacion;
   
-  SpriteRenderer spriteRenderer;
+  private SpriteRenderer spriteRenderer;
 
   public Personaje(PVector posicion, PVector tamanio, float velocidad, int vida, color colorPersonaje) {
     super(posicion, tamanio);
@@ -19,7 +19,6 @@ class Personaje extends GameObject {
     this.izquierda = false;
     this.derecha = false;
     this.bala = new ArrayList<Bala>();
-    
     
     this.estadoAnimacion = MaquinaEstadosAnimacion.ANIMACION_QUIETO;
     this.spriteRenderer = new SpriteRenderer(this); //this es el personaje actual que se esta creando
@@ -47,13 +46,9 @@ class Personaje extends GameObject {
 
   spriteRenderer.mostrarAnimacion(estadoAnimacion);
  
-
   }
 
   public void mover(String direccion) {
-    
-    
-    
     
     switch(direccion) {
 
@@ -129,4 +124,86 @@ class Personaje extends GameObject {
       new PVector(mouseX, mouseY)
       ));
   }
+  
+  
+  public float getVelocidad(){
+    return velocidad;
+  }
+  
+  public void setVelocidad(float nuevaVelocidad){
+    this.velocidad = nuevaVelocidad;
+  }
+  
+  public int getVida(){
+    return vida;
+  }
+  
+  public void setVida(int nuevaVida){
+    this.vida = nuevaVida;
+  }
+  
+  public color getColorPersonaje(){
+    return colorPersonaje;
+  }
+  
+  public void setColorPersonaje(int nuevoColorPersonaje){
+    this.colorPersonaje = nuevoColorPersonaje;
+  }
+  
+  public boolean getArriba(){
+    return arriba;
+  }
+  
+  public void setArriba(boolean nuevoArriba){
+    this.arriba = nuevoArriba;
+  }
+  
+  public boolean getAbajo(){
+    return abajo;
+  }
+  
+  public void setAbajo(boolean nuevoAbajo){
+    this.abajo = nuevoAbajo;
+  }
+  
+  public boolean getIzquierda(){
+    return izquierda;
+  }
+  
+  public void setIzquierda(boolean nuevoIzquierda){
+    this.izquierda = nuevoIzquierda;
+  }
+  
+  public boolean getDerecha(){
+    return derecha;
+  }
+  
+  public void setDerecha(boolean nuevoDerecha){
+    this.derecha = nuevoDerecha;
+  }
+  
+  public ArrayList getBala(){
+    return bala;
+  }
+  
+  public void setBala(ArrayList nuevaBala){
+    this.bala = nuevaBala;
+  }
+  
+  public int getEstadoAnimacion(){
+    return estadoAnimacion;
+  }
+  
+  public void setEstadoAnimacion(int nuevoEstadoAnimacion){
+    this.estadoAnimacion = nuevoEstadoAnimacion;
+  }
+  
+  public SpriteRenderer getSpriteRenderer(){
+    return spriteRenderer;
+  }
+  
+  public void setSpriteRenderer(SpriteRenderer nuevoSpriteRenderer){
+    this.spriteRenderer = nuevoSpriteRenderer;
+  }
+    
 }

@@ -1,6 +1,6 @@
 class Triceratops extends Dinosaurio {
   
-  Collider colliderTriceratops;
+  private Collider colliderTriceratops;
   
   public Triceratops(PVector posicion, PVector tamanio, int vida, float velocidad, int danio) {
     super(posicion, tamanio, vida, velocidad, danio);
@@ -39,6 +39,12 @@ class Triceratops extends Dinosaurio {
     return vida > 0;
   }
   
+  public Collider getColliderTriceratops(){
+    return colliderTriceratops;
+  }
   
+  public void setColliderTriceratops(Collider nuevoColliderTriceratops){
+    this.colliderTriceratops = nuevoColliderTriceratops;
+  }
   
 }

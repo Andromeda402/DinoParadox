@@ -1,5 +1,5 @@
 class PantallaIntro extends Pantalla {
-  String[] historia = {
+  private String[] historia = {
     "Escuchen con atención...",
     "El mundo terminó con un rugido, no con un suspiro...",
     "Esta entidad combinó los restos fósiles de dinosaurios con tecnología alienígena y biomecánica...",
@@ -14,15 +14,16 @@ class PantallaIntro extends Pantalla {
     "Porque sólo los que poseen un alma pueden cambiar el destino de este mundo."
   };
   
-  int lineaActual = 0;
-  PImage cientifico;
+  private int lineaActual = 0;
+  private PImage cientifico;
+  
 
-  PantallaIntro(PImage fondo, PImage cientifico) {
+  public PantallaIntro(PImage fondo, PImage cientifico) {
     super(fondo);
     this.cientifico = cientifico;
   }
 
-  void dibujar() {
+  public void dibujar() {
     dibujarFondo();
 
     image(cientifico, 50, height - 150);
@@ -41,10 +42,40 @@ class PantallaIntro extends Pantalla {
     text("Haz clic para continuar...", width - 20, height - 10);
   }
 
-  void mousePressed(float mx, float my) {
+  public void mousePressed(float mx, float my) {
     lineaActual++;
     if (lineaActual >= historia.length) {
       estadoJuego = MaquinaEstadosJuego.JUGANDO_NIVEL01;
     }
   }
+  
+  
+  
+  
+  
+  
+  public String[] getHistoria(){
+    return historia;
+  }
+  
+  public void setHistoria(String[] nuevaHistoria){
+    this.historia = nuevaHistoria;
+  }
+  
+  public int getLineaActual(){
+    return lineaActual;
+  }
+  
+  public void setLineaActual(int nuevaLineaActual){
+    this.lineaActual = nuevaLineaActual;
+  }
+  
+  public PImage getCientifico(){
+    return cientifico;
+  }
+  
+  public void setCientifico(PImage nuevoCientifico){
+    this.cientifico = nuevoCientifico;
+  }
+  
 }

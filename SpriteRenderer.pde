@@ -1,16 +1,19 @@
+
+//FALTA ENCAPSULACION
+
 class SpriteRenderer {
-  PImage spriteSheet;
+  private PImage spriteSheet;
 
-  int anchoFrame;
-  int altoFrame;
-  int columnas; // Cuantos frames por fila
+  private int anchoFrame;
+  private int altoFrame;
+  private int columnas; // Cuantos frames por fila
 
-  int frameActual;
-  int contadorFrames;
-  int velocidadAnimacion;
+  private int frameActual;
+  private int contadorFrames;
+  private int velocidadAnimacion;
 
-  GameObject objeto;
-  boolean hayImagen;
+  private GameObject objeto;
+  private boolean hayImagen;
 
   // Constructor
   public SpriteRenderer(GameObject objeto) {
@@ -115,4 +118,77 @@ class SpriteRenderer {
       contadorFrames = 0;
     }
   }
+  
+  public PImage getSpriteSheet(){
+    return spriteSheet;
+  }
+  
+  public void setSpriteSheet(PImage nuevoSpriteSheet){
+    this.spriteSheet = nuevoSpriteSheet;
+  }
+  
+  public int getAnchoFrame(){
+    return anchoFrame;
+  }
+  
+  public void setAnchoFrame(int nuevoAnchoFrame){
+    this.anchoFrame = nuevoAnchoFrame;
+  }
+  
+  public int getAltoSheet(){
+    return altoFrame;
+  }
+  
+  public void setAltoSheet(int nuevoAltoFrame){
+    this.altoFrame = nuevoAltoFrame;
+  }
+  
+  public int getColumnas(){
+    return columnas;
+  }
+  
+  public void setColumnas(int nuevaColumna){
+    this.columnas = nuevaColumna;
+  }
+  
+  public int getFrameActual(){
+    return frameActual;
+  }
+  
+  public void setFrameActual(int nuevoFrameActual){
+    this.frameActual = nuevoFrameActual;
+  }
+  
+  public int getContadorFrames(){
+    return contadorFrames;
+  }
+  
+  public void setContadorFrames(int nuevoContadorFrames){
+    this.contadorFrames = nuevoContadorFrames;
+  }
+  
+  public int getVelocidadAnimacion(){
+    return velocidadAnimacion;
+  }
+  
+  public void setVelocidadAnimacion(int nuevaVelocidadAnimacion){
+    this.velocidadAnimacion = nuevaVelocidadAnimacion;
+  }
+
+  public GameObject getObjeto(){
+    return objeto;
+  }
+  
+  public void setObjeto(GameObject nuevoObjeto){
+    this.objeto = nuevoObjeto;
+  }
+  
+  public Boolean getHayImagen(){
+    return hayImagen;
+  }
+  
+  public void setHayImagen(Boolean nuevoHayImagen){
+    this.hayImagen = nuevoHayImagen;
+  }
+  
 }

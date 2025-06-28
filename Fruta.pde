@@ -1,11 +1,11 @@
 class Fruta extends GameObject {
 
-  float velocidad;
-  boolean detonar;
-  int danio;
-  Collider colliderFruta;
-  float duracion;
-  PVector direccion;
+  private float velocidad;
+  private boolean detonar;
+  private int danio;
+  private Collider colliderFruta;
+  private float duracion;
+  private PVector direccion;
 
   public Fruta(PVector posicion, PVector tamanio) {
     super(posicion, tamanio);
@@ -60,4 +60,53 @@ class Fruta extends GameObject {
       detonar = true;
     }
   }
+  
+  public float getVelocidad(){
+    return velocidad;
+  }
+  
+  public void setVelocidad(float nuevaVelocidad){
+    this.velocidad = nuevaVelocidad;
+  }
+  
+  public boolean getDetonar(){
+    return detonar;
+  }
+  
+  public void setDetonar(boolean nuevoDetonar){
+    this.detonar = nuevoDetonar;
+  }
+  
+  public int getDanio(){
+    return danio;
+  }
+  
+  public void setDanio(int nuevoDanio){
+    this.danio = nuevoDanio;
+  }
+  
+  public Collider getColliderFruta(){
+    return colliderFruta;
+  }
+  
+  public void setColliderFruta(Collider nuevoColliderFruta){
+    this.colliderFruta = nuevoColliderFruta;
+  }
+  
+  public float getDuracion(){
+    return duracion;
+  }
+  
+  public void setDuracion(float nuevaDuracion){
+    this.duracion = nuevaDuracion;
+  }
+  
+  public PVector getDireccion(){
+    return direccion;
+  }
+  
+  public void setDireccion(PVector nuevaDireccion){
+    this.direccion = nuevaDireccion;
+  }
+   
 }

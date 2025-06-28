@@ -1,15 +1,15 @@
 class Bala extends GameObject {
 
-  PVector posDestino;
-  PVector direccionProyectil;
-  float velocidad;
-  int danioBala;
-  boolean teclaEspacio;
-  Collider colliderBala;
+  private PVector posDestino;
+  private PVector direccionProyectil;
+  private float velocidad;
+  private int danioBala;
+  private boolean teclaEspacio;
+  private Collider colliderBala;
   
-  float distMouseX;
-  float distMouseY;
-  float magnitud;;
+  private float distMouseX;
+  private float distMouseY;
+  private float magnitud;;
 
   public Bala(PVector posicion, PVector tamanio, PVector posDestino) {
     super(posicion, tamanio);
@@ -23,7 +23,7 @@ class Bala extends GameObject {
     this.direccionProyectil = new PVector(distMouseX /magnitud, distMouseY /magnitud);
 
 
-    this.velocidad = 4;
+    this.velocidad = 8;
     this.danioBala = 1;
     this.teclaEspacio = false;
     this.colliderBala = new Collider(this.posicion, this.tamanio);
@@ -64,4 +64,72 @@ class Bala extends GameObject {
       teclaEspacio = false;
     }
   }
+  
+  
+  public PVector getPosDestino(){
+    return posDestino;
+  }
+  
+  public void setPosDestino(PVector nuevoPosDestino){
+    this.posDestino = nuevoPosDestino;
+  }
+  
+  public PVector getDireccionProyectil(){
+    return direccionProyectil;
+  }
+  
+  public void setDireccionProyectil(PVector nuevaDireccionProyectil){
+    this.direccionProyectil = nuevaDireccionProyectil;
+  }
+  
+  public float getVelocidad(){
+    return velocidad;
+  }
+  
+  public void setVelocidad(float nuevaVelocidad){
+    this.velocidad = nuevaVelocidad;
+  }
+  
+  public boolean getTeclaEspacio(){
+    return teclaEspacio;
+  }
+  
+  public void setTeclaEspacio(boolean nuevaTeclaEspacio){
+    this.teclaEspacio = nuevaTeclaEspacio;
+  }
+  
+  
+  public Collider getColliderBala(){
+    return colliderBala;
+  }
+  
+  public void setTeclaEspacio(Collider nuevoColliderBala){
+    this.colliderBala = nuevoColliderBala;
+  }
+  
+  
+  public float getDistMouseX(){
+    return distMouseX;
+  }
+  
+  public void setDistMouseX(float nuevaDistMouseX){
+    this.distMouseX = nuevaDistMouseX;
+  }
+  
+  public float getDistMouseY(){
+    return distMouseY;
+  }
+  
+  public void setDistMouseY(float nuevaDistMouseY){
+    this.distMouseY = nuevaDistMouseY;
+  }
+  
+  public float getMagnitud(){
+    return magnitud;
+  }
+  
+  public void setMagnitud(float nuevaMagnitud){
+    this.magnitud = nuevaMagnitud;
+  }
+  
 }

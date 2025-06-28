@@ -1,7 +1,7 @@
 class Collider {
 
-  PVector posicion;
-  PVector tamanio;
+  private PVector posicion;
+  private PVector tamanio;
   //float radio;
 
   public Collider(PVector posicion, PVector tamanio) {
@@ -30,4 +30,21 @@ class Collider {
 
     return distanciaCuadrada <= sumaRadiosCuadrada;
   }
+  
+  public PVector getPosicion(){
+    return posicion;
+  }
+  
+  public void setPosicion(PVector nuevaPosicion){
+    this.posicion = nuevaPosicion;
+  }
+  
+  public PVector getTamanio(){
+    return tamanio;
+  }
+  
+  public void setTamanio(PVector nuevoTamanio){
+    this.tamanio = nuevoTamanio;
+  }
+  
 }

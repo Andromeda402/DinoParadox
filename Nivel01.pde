@@ -1,11 +1,11 @@
 class Nivel01 {
  
-  Personaje personaje;
-  SpawnerDinosaurio spawnerVelociraptor;
-  SpawnerDinosaurio spawnerPterodactilo;
-  SpawnerDinosaurio spawnerTriceratops;
+  private Personaje personaje;
+  private SpawnerDinosaurio spawnerVelociraptor;
+  private SpawnerDinosaurio spawnerPterodactilo;
+  private SpawnerDinosaurio spawnerTriceratops;
 
-  int contadorEliminaciones = 0;
+  private int contadorEliminaciones;
 
 
   public Nivel01(PImage spritePersonaje) {
@@ -20,6 +20,8 @@ class Nivel01 {
     spawnerTriceratops = new SpawnerDinosaurio();
 
     personaje.spriteRenderer.cambiarImagen(spritePersonaje);
+    
+    contadorEliminaciones = 0;
   }
 
   public void iniciar() {
@@ -135,4 +137,37 @@ class Nivel01 {
 
     personaje.keyReleased();
   }
+  
+  public Personaje getPersonaje(){
+    return personaje;
+  }
+  
+  public void setPersonaje(Personaje nuevoPersonaje){
+    this.personaje = nuevoPersonaje;
+  }
+  
+  public SpawnerDinosaurio getSpawnerVelociraptor(){
+    return spawnerVelociraptor;
+  }
+  
+  public void setSpawnerVelociraptor(SpawnerDinosaurio nuevoSpawnerVelociraptor){
+    this.spawnerVelociraptor = nuevoSpawnerVelociraptor;
+  }
+  
+  public SpawnerDinosaurio getSpawnerPterodactilo(){
+    return spawnerPterodactilo;
+  }
+  
+  public void setSpawnerPterodactilo(SpawnerDinosaurio nuevoSpawnerPterodactilo){
+    this.spawnerPterodactilo = nuevoSpawnerPterodactilo;
+  }
+  
+  public SpawnerDinosaurio getSpawnerTriceratops(){
+    return spawnerTriceratops;
+  }
+  
+  public void setSpawnerTriceratops(SpawnerDinosaurio nuevoSpawnerTriceratops){
+    this.spawnerTriceratops = nuevoSpawnerTriceratops;
+  }
+  
 }

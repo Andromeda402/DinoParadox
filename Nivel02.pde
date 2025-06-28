@@ -1,9 +1,8 @@
 class Nivel02 {
 
-  Personaje personaje;
-  SpawnerDinosaurio spawnerMatriarca;
-  SpriteRenderer spriteRendererer;// esto agregue
-  
+  private Personaje personaje;
+  private SpawnerDinosaurio spawnerMatriarca;
+  private SpriteRenderer spriteRendererer;// esto agregue
 
 
   public Nivel02(PImage spritePersonaje) {
@@ -28,12 +27,7 @@ class Nivel02 {
     
     spawnerMatriarca.actualizarMatriarca(personaje);
     spawnerMatriarca.dibujar();
-
     
-
-    
-
-
 
       for (int i = personaje.bala.size() - 1; i >= 0; i--) {
         Bala b = personaje.bala.get(i);
@@ -89,6 +83,21 @@ class Nivel02 {
 
     personaje.keyReleased();
   }
-
+  
+  public Personaje personaje(){
+    return personaje;
+  }
+  
+  public void getPersonaje(Personaje nuevoPersonaje){
+    this.personaje = nuevoPersonaje;
+  }
+  
+  public SpawnerDinosaurio getSpawnerMatriarca(){
+    return spawnerMatriarca;
+  }
+  
+  public void setSpawnerMatriarca(SpawnerDinosaurio nuevoSpawnerMatriarca){
+    this.spawnerMatriarca = nuevoSpawnerMatriarca;
+  }
 
 }

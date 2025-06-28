@@ -1,7 +1,7 @@
 abstract class Pantalla {
-  PImage fondo;
+  protected PImage fondo;
 
-  Pantalla(PImage fondo) {
+  public Pantalla(PImage fondo) {
     this.fondo = fondo;
   }
 
@@ -9,7 +9,7 @@ abstract class Pantalla {
     image(fondo, 0, 0, width, height);
   }*/
   //agregue esto
-  void dibujarFondo() {
+  public void dibujarFondo() {
     if (fondo != null) {
       image(fondo, 0, 0, width, height);
     } else {
@@ -18,6 +18,15 @@ abstract class Pantalla {
     }
   }
 
-  abstract void dibujar();
-  abstract void mousePressed(float mx, float my);
+  public abstract void dibujar();
+  public abstract void mousePressed(float mx, float my);
+  
+  public PImage getFondo(){
+    return fondo;
+  }
+  
+  public void setFondo(PImage nuevoFondo){
+    this.fondo = nuevoFondo;
+  }
+  
 }

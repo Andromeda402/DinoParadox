@@ -1,7 +1,7 @@
 class GameObject {
 
-  PVector posicion;
-  PVector tamanio;
+  protected PVector posicion;
+  protected PVector tamanio;
 
   public GameObject(PVector posicion, PVector tamanio) {
     this.posicion = posicion;
@@ -13,5 +13,21 @@ class GameObject {
   public void mover(){};
   
   
+  
+  public PVector getPosicion(){
+    return posicion;
+  }
+  
+  public void setPosicion(PVector nuevaPosicion){
+    this.posicion = nuevaPosicion;
+  }
+  
+  public PVector getTamanio(){
+    return posicion;
+  }
+  
+  public void setTamanio(PVector nuevoTamanio){
+    this.tamanio = nuevoTamanio;
+  }
   
 }

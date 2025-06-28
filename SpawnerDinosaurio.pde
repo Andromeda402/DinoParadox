@@ -1,21 +1,21 @@
 class SpawnerDinosaurio {
 
-  ArrayList<Velociraptor> velociraptor;
-  int tiempoRecargaV;
-  int contadorV;
+  private ArrayList<Velociraptor> velociraptor;
+  private int tiempoRecargaV;
+  private int contadorV;
 
-  ArrayList<Pterodactilo> pterodactilo;
-  int tiempoRecargaP;
-  int contadorP;
+  private ArrayList<Pterodactilo> pterodactilo;
+  private int tiempoRecargaP;
+  private int contadorP;
   
-  ArrayList<Triceratops> triceratops;
-  int tiempoRecargaT;
-  int contadorT;
+  private ArrayList<Triceratops> triceratops;
+  private int tiempoRecargaT;
+  private int contadorT;
   
-  ArrayList<Matriarca> matriarca;
-  int tiempoRecargaM;
-  int contadorM;
-  boolean matriarcaGenerada;
+  private ArrayList<Matriarca> matriarca;
+  private int tiempoRecargaM;
+  private int contadorM;
+  private boolean matriarcaGenerada;
   
 
   public SpawnerDinosaurio() {
@@ -207,5 +207,108 @@ class SpawnerDinosaurio {
     }
   }
   
+  public ArrayList getVelociraptor(){
+    return velociraptor;
+  }
+  
+  public void setVelociraptor(ArrayList nuevoVelociraptor){
+    this.velociraptor = nuevoVelociraptor;
+  }
+  
+  public int getTiempoRecargaV(){
+    return tiempoRecargaV;
+  }
+  
+  public void setTiempoRecargaV(int nuevoTiempoRecargaV){
+    this.tiempoRecargaV = nuevoTiempoRecargaV;
+  }
+  
+  public int getContadorV(){
+    return contadorV;
+  }
+  
+  public void setContadorV(int nuevoContadorV){
+    this.contadorV = nuevoContadorV;
+  }
+  
+  public ArrayList getPterodactilo(){
+    return pterodactilo;
+  }
+  
+  public void setPterodactilo(ArrayList nuevoPterodactilo){
+    this.pterodactilo = nuevoPterodactilo;
+  }
+  
+  public int getTiempoRecargaP(){
+    return tiempoRecargaP;
+  }
+  
+  public void setTiempoRecargaP(int nuevoTiempoRecargaP){
+    this.tiempoRecargaP = nuevoTiempoRecargaP;
+  }
+  
+  public int getContadorP(){
+    return contadorP;
+  }
+  
+  public void setContadorP(int nuevoContadorP){
+    this.contadorP = nuevoContadorP;
+  }
+  
+  public ArrayList getTriceratops(){
+    return triceratops;
+  }
+  
+  public void setTriceratops(ArrayList nuevoTriceratops){
+    this.triceratops = nuevoTriceratops;
+  }
+  
+  public int getTiempoRecargaT(){
+    return tiempoRecargaT;
+  }
+  
+  public void setTiempoRecargaT(int nuevoTiempoRecargaT){
+    this.tiempoRecargaT = nuevoTiempoRecargaT;
+  }
+  
+  public int getContadorT(){
+    return contadorT;
+  }
+  
+  public void setContadorT(int nuevoContadorT){
+    this.contadorT = nuevoContadorT;
+  }
+  
+  public ArrayList getMatriarca(){
+    return matriarca;
+  }
+  
+  public void setMatriarca(ArrayList nuevaMatriarca){
+    this.matriarca = nuevaMatriarca;
+  }
+  
+  public int getTiempoRecargaM(){
+    return tiempoRecargaM;
+  }
+  
+  public void setTiempoRecargaM(int nuevoTiempoRecargaM){
+    this.tiempoRecargaM = nuevoTiempoRecargaM;
+  }
+  
+  public int getContadorM(){
+    return contadorT;
+  }
+  
+  public void setContadorM(int nuevoContadorM){
+    this.contadorM = nuevoContadorM;
+  }
+  
+  public boolean getMatriarcaGenerada(){
+    return matriarcaGenerada;
+  }
+  
+  public void setMatriarcaGenerada(boolean nuevaMatriarcaGenerada){
+    this.matriarcaGenerada = nuevaMatriarcaGenerada;
+  }
   
 }

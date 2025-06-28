@@ -1,8 +1,8 @@
 class Pterodactilo extends Dinosaurio {
 
-  boolean cambioSentido;
-  int tiempoSoltarFruta;
-  ArrayList<Fruta> fruta;
+  private boolean cambioSentido;
+  private int tiempoSoltarFruta;
+  private ArrayList<Fruta> fruta;
 
   public Pterodactilo(PVector posicion, PVector tamanio, int vida, float velocidad, int danio) {
     super(posicion, tamanio, vida, velocidad, danio);
@@ -53,10 +53,32 @@ class Pterodactilo extends Dinosaurio {
     fruta.add(new Fruta(new PVector(posicion.x, posicion.y), new PVector(15, 15)));
   }
 
-
-
-
   public boolean conVida() {
     return vida > 0;
   }
+  
+  public boolean getCambioSentido(){
+    return cambioSentido;
+  }
+  
+  public void setCambioSentido(boolean nuevoCambioSentido){
+    this.cambioSentido = nuevoCambioSentido;
+  }
+  
+  public int getTiempoSoltarFruta(){
+    return tiempoSoltarFruta;
+  }
+  
+  public void setTiempoSoltarFruta(int nuevoTiempoSoltarFruta){
+    this.tiempoSoltarFruta = nuevoTiempoSoltarFruta;
+  }
+  
+  public ArrayList getFruta(){
+    return fruta;
+  }
+  
+  public void setFruta(ArrayList nuevaFruta){
+    this.fruta = nuevaFruta;
+  }
+  
 }
