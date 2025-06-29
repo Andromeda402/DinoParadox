@@ -39,8 +39,8 @@ class SpriteRenderer {
   }*/
   void cambiarImagen(PImage nuevaImagen) {
     if (nuevaImagen != null) {
-      spriteSheet = nuevaImagen;
-      columnas = spriteSheet.width / anchoFrame;  // Aquí NO va a dar error si la imagen existe
+      this.spriteSheet = nuevaImagen;
+      this.columnas = spriteSheet.width / anchoFrame;  // Aquí NO va a dar error si la imagen existe
     } else {
       println("ERROR: La imagen es null, revisa que esté en la carpeta data y el nombre sea correcto.");
     }
@@ -53,7 +53,7 @@ class SpriteRenderer {
     if (!hayImagen) {
       // Si no hay imagen se dibuja una elipse de reserva
       fill(#CCCCCC);
-      ellipse(objeto.posicion.x, objeto.posicion.y, objeto.tamanio.x, objeto.tamanio.y);
+      ellipse(objeto.getPosicion().x, objeto.getPosicion().y, objeto.getTamanio().x, objeto.getTamanio().y);
       return;
     }
 

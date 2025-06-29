@@ -9,19 +9,19 @@ class Nivel01 {
 
 
   public Nivel01(PImage spritePersonaje) {
-    personaje = new Personaje(
+    this.personaje = new Personaje(
       new PVector (300, 400), //posicion
       new PVector(40, 40), //tamanio
       4, // velocidad
-      600, //vidas 
+      20, //vidas 
       color(#1C3E98)); //color
-    spawnerVelociraptor = new SpawnerDinosaurio();
-    spawnerPterodactilo = new SpawnerDinosaurio();
-    spawnerTriceratops = new SpawnerDinosaurio();
+    this.spawnerVelociraptor = new SpawnerDinosaurio();
+    this.spawnerPterodactilo = new SpawnerDinosaurio();
+    this.spawnerTriceratops = new SpawnerDinosaurio();
 
-    personaje.spriteRenderer.cambiarImagen(spritePersonaje);
+    this.personaje.spriteRenderer.cambiarImagen(spritePersonaje);
     
-    contadorEliminaciones = 0;
+    this.contadorEliminaciones = 0;
   }
 
   public void iniciar() {
@@ -39,8 +39,8 @@ class Nivel01 {
     spawnerTriceratops.actualizarTriceratops(personaje);
     spawnerTriceratops.dibujar();
 
-    for (Velociraptor velociraptor : spawnerVelociraptor.velociraptor) {
-      velociraptor.chocar(personaje);
+    for (Velociraptor velociraptor : this.spawnerVelociraptor.velociraptor) {
+      velociraptor.chocar(this.personaje, velociraptor);
 
 
 
@@ -54,12 +54,13 @@ class Nivel01 {
         boolean colisiono = false;
 
         // Verificar colision con velociraptores
-        for (int h = spawnerVelociraptor.velociraptor.size() - 1; h >= 0; h--) {
-          Velociraptor v = spawnerVelociraptor.velociraptor.get(h);
-          if (b.colliderBala.hayColision(v.colliderVelociraptor)) {
-            v.vida -= b.danioBala;
-            if (v.vida <= 0) { //solo cuenta si el dino llego a 0 y no fue eliminado por el spawner
-              contadorEliminaciones += 1;
+        for (int h = this.spawnerVelociraptor.velociraptor.size() - 1; h >= 0; h--) {
+          Velociraptor v = this.spawnerVelociraptor.velociraptor.get(h);
+          if (b.colliderBala.hayColision(v.getColliderVelociraptor())) {
+            //v.vida -= b.danioBala;
+            v.setVida(v.getVida() - b.getDanioBala());
+            if (v.getVida() <= 0) { //solo cuenta si el dino llego a 0 y no fue eliminado por el spawner
+              this.contadorEliminaciones += 1;
               println("Dinosaurios Eliminados: "+contadorEliminaciones);
             }
             colisiono = true;
@@ -69,13 +70,14 @@ class Nivel01 {
 
         // Verificar colision con pterodactilos
         if (!colisiono) {
-          for (int h = spawnerPterodactilo.pterodactilo.size() - 1; h >= 0; h--) {
-            Pterodactilo p = spawnerPterodactilo.pterodactilo.get(h);
-            Collider colPterodactilo = new Collider(p.posicion, p.tamanio);
+          for (int h = this.spawnerPterodactilo.pterodactilo.size() - 1; h >= 0; h--) {
+            Pterodactilo p = this.spawnerPterodactilo.pterodactilo.get(h);
+            Collider colPterodactilo = new Collider(p.getPosicion(), p.getTamanio());
             if (b.colliderBala.hayColision(colPterodactilo)) {
-              p.vida -= b.danioBala;
-              if (p.vida <= 0) { //solo cuenta si el dino llego a 0 y no fue eliminado por el spawner
-                contadorEliminaciones += 1;
+              //p.vida -= b.danioBala;
+              p.setVida(p.getVida() - b.getDanioBala());
+              if (p.getVida() <= 0) { //solo cuenta si el dino llego a 0 y no fue eliminado por el spawner
+                this.contadorEliminaciones += 1;
                 println("Dinosaurios Eliminados: "+contadorEliminaciones);
               }
               colisiono = true;
@@ -86,13 +88,14 @@ class Nivel01 {
 
         // Verificar colision con triceratops
         if (!colisiono) {
-          for (int h = spawnerTriceratops.triceratops.size() - 1; h >= 0; h--) {
-            Triceratops p = spawnerTriceratops.triceratops.get(h);
-            Collider colTriceratops = new Collider(p.posicion, p.tamanio);
+          for (int h = this.spawnerTriceratops.triceratops.size() - 1; h >= 0; h--) {
+            Triceratops p = this.spawnerTriceratops.triceratops.get(h);
+            Collider colTriceratops = new Collider(p.getPosicion(), p.getTamanio());
             if (b.colliderBala.hayColision(colTriceratops)) {
-              p.vida -= b.danioBala;
-              if (p.vida <= 0) { //solo cuenta si el dino llego a 0 y no fue eliminado por el spawner
-                contadorEliminaciones += 1;
+              //p.vida -= b.danioBala;
+              p.setVida(p.getVida() - b.getDanioBala());
+              if (p.getVida() <= 0) { //solo cuenta si el dino llego a 0 y no fue eliminado por el spawner
+                this.contadorEliminaciones += 1;
                 println("Dinosaurios Eliminados: " +contadorEliminaciones);
               }
               colisiono = true;
@@ -103,16 +106,21 @@ class Nivel01 {
 
 
         // Si algun dinosarurio colisiono o se salio de pantalla se elimina
-        if (colisiono || b.posicion.x < 0 || b.posicion.x > width || b.posicion.y < 0 || b.posicion.y > height) {
+        if (colisiono || b.getPosicion().x < 0 || b.getPosicion().x > width || b.getPosicion().y < 0 || b.getPosicion().y > height) {
           personaje.bala.remove(i);
         }
       }
     }
 
     //contador para los dinosaurios eliminados por el jugador
-    if (contadorEliminaciones >= 10) { //se deben eliminar x cantidad de dinosaurios para llegar al siguiente nivel
+    if (this.contadorEliminaciones >= 10) { //se deben eliminar x cantidad de dinosaurios para llegar al siguiente nivel
       estadoJuego = MaquinaEstadosJuego.JUGANDO_NIVEL02;
-      println("¡Pasaste al Nivel 2 por eliminar " +contadorEliminaciones+ " dinosaurios");
+      println("¡Pasaste al Nivel 2 por eliminar " +contadorEliminaciones+ " dinosaurios!");
+    }
+    
+    if(personaje.getVida() <= 0){
+      estadoJuego = MaquinaEstadosJuego.DERROTA;
+      println("FUERA DE COMBATE");
     }
     
   }

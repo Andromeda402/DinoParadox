@@ -37,19 +37,19 @@ class SpawnerDinosaurio {
   }
 
   public void dibujar() {
-    for (Velociraptor v : velociraptor) {
+    for (Velociraptor v : this.velociraptor) {
       v.dibujar();
     }
 
-    for (Pterodactilo p : pterodactilo) {
+    for (Pterodactilo p : this.pterodactilo) {
       p.dibujar();
     }
     
-    for (Triceratops t : triceratops) {
+    for (Triceratops t : this.triceratops) {
       t.dibujar();
     }
     
-    for (Matriarca m : matriarca) {
+    for (Matriarca m : this.matriarca) {
       m.dibujar();
     }
     
@@ -123,14 +123,14 @@ class SpawnerDinosaurio {
 
     //Velociraptor
     contadorV++;
-    if (contadorV >= tiempoRecargaV) {
+    if (this.contadorV >= this.tiempoRecargaV) {
       generarVelociraptor();
-      contadorV = 0;
+      this.contadorV = 0;
     }
 
 
-    for (int i = velociraptor.size() - 1; i >= 0; i--) {
-      Velociraptor v = velociraptor.get(i);
+    for (int i = this.velociraptor.size() - 1; i >= 0; i--) {
+      Velociraptor v = this.velociraptor.get(i);
       if (v != null) {
 
         v.mover();
@@ -145,16 +145,16 @@ class SpawnerDinosaurio {
   public void actualizarPterodactilo(Personaje personaje) {
     //Pterodactilo
     contadorP++;
-    if (contadorP >= tiempoRecargaP) {
+    if (this.contadorP >= this.tiempoRecargaP) {
       generarPterodactilo();
-      contadorP = 0;
+      this.contadorP = 0;
     }
 
-    for (int i = pterodactilo.size() - 1; i >= 0; i--) {
-      Pterodactilo p = pterodactilo.get(i);
+    for (int i = this.pterodactilo.size() - 1; i >= 0; i--) {
+      Pterodactilo p = this.pterodactilo.get(i);
       if (p != null) {
 
-        p.mover(personaje);
+        p.mover(personaje, p);
         if (p.conVida() == false) {
           
           pterodactilo.remove(i);
@@ -166,16 +166,17 @@ class SpawnerDinosaurio {
   public void actualizarTriceratops(Personaje personaje) {
     //Triceratops
     contadorT++;
-    if (contadorT >= tiempoRecargaT) {
+    if (this.contadorT >= this.tiempoRecargaT) {
       generarTriceratops();
-      contadorT = 0;
+      this.contadorT = 0;
     }
 
-    for (int i = triceratops.size() - 1; i >= 0; i--) {
-      Triceratops t = triceratops.get(i);
+    for (int i = this.triceratops.size() - 1; i >= 0; i--) {
+      Triceratops t = this.triceratops.get(i);
       if (t != null) {
 
-        t.mover(personaje);
+        t.mover(personaje, t);
+        t.atacar(personaje);
         if (t.conVida() == false) {
           
           triceratops.remove(i);
@@ -192,8 +193,8 @@ class SpawnerDinosaurio {
       matriarcaGenerada = true; // SOLO UNA VEZ
     }
 
-    for (int i = matriarca.size() - 1; i >= 0; i--) {
-      Matriarca m = matriarca.get(i);
+    for (int i = this.matriarca.size() - 1; i >= 0; i--) {
+      Matriarca m = this.matriarca.get(i);
       if (m != null) {
         m.mover(personaje);
         m.atacar(personaje);

@@ -16,11 +16,11 @@ class Bala extends GameObject {
     this.posDestino = posDestino;
 
 
-    this.distMouseX = posDestino.x - posicion.x;
-    this.distMouseY = posDestino.y - posicion.y;
-    this.magnitud = sqrt(distMouseX * distMouseX + distMouseY * distMouseY);
+    this.distMouseX = getPosDestino().x - getPosicion().x;
+    this.distMouseY = getPosDestino().y - getPosicion().y;
+    this.magnitud = sqrt(this.distMouseX * this.distMouseX +this. distMouseY * this.distMouseY);
 
-    this.direccionProyectil = new PVector(distMouseX /magnitud, distMouseY /magnitud);
+    this.direccionProyectil = new PVector(this.distMouseX /this.magnitud, this.distMouseY /this.magnitud);
 
 
     this.velocidad = 8;
@@ -33,12 +33,15 @@ class Bala extends GameObject {
 
     fill(#E1ED67);
     ellipse(posicion.x, posicion.y, tamanio.x, tamanio.y);
+    
+    ellipse(getPosicion().x, getPosicion().y, getTamanio().x, getTamanio().y);
+    
   }
 
   public void mover() {
     
-    this.posicion.x += direccionProyectil.x * velocidad;
-    this.posicion.y += direccionProyectil.y * velocidad;
+    this.posicion.x += this.direccionProyectil.x * this.velocidad;
+    this.posicion.y += this.direccionProyectil.y * this.velocidad;
   }
   
 
@@ -46,7 +49,7 @@ class Bala extends GameObject {
     Collider colliderDinosaurio = new Collider(dinosaurio.posicion, dinosaurio.tamanio);
 
     if (colliderDinosaurio.hayColision(colliderBala)) {
-      dinosaurio.vida -= this.danioBala;
+      dinosaurio.setVida(dinosaurio.getVida() - this.danioBala);
     }
   }
 
@@ -130,6 +133,14 @@ class Bala extends GameObject {
   
   public void setMagnitud(float nuevaMagnitud){
     this.magnitud = nuevaMagnitud;
+  }
+  
+  public int getDanioBala(){
+    return danioBala;
+  }
+  
+  public void setDanioBala(int nuevoDanioBala){
+    this.danioBala = nuevoDanioBala;
   }
   
 }

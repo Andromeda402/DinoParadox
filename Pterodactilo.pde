@@ -11,39 +11,39 @@ class Pterodactilo extends Dinosaurio {
 
   public void dibujar() {
     fill(#FFA500);
-    ellipse(posicion.x, posicion.y, tamanio.x, tamanio.y);
+    ellipse(getPosicion().x, getPosicion().y, getTamanio().x, getTamanio().y);
 
-    for (Fruta f : fruta) {
+    for (Fruta f : this.fruta) {
       f.dibujar();
     }
   }
 
-  public void mover(Personaje personaje) {
-    if (cambioSentido == true) {
-      posicion.x += velocidad;
+  public void mover(Personaje personaje, Dinosaurio dinosaurio) {
+    if (this.cambioSentido == true) {
+      this.posicion.x += dinosaurio.getVelocidad();
       if (posicion.x + tamanio.x / 2 >= width) {
-        cambioSentido = false;
+        this.cambioSentido = false;
       }
     } else {
-      posicion.x -= velocidad;
-      if (posicion.x - tamanio.x / 2 <= 0) {
-        cambioSentido = true;
+      this.posicion.x -= dinosaurio.getVelocidad();
+      if (this.posicion.x - dinosaurio.getTamanio().x / 2 <= 0) {
+        this.cambioSentido = true;
       }
     }
 
-    tiempoSoltarFruta +=1;
+    this.tiempoSoltarFruta +=1;
 
-    if (tiempoSoltarFruta >= 420) { // cada 4 segundos
+    if (this.tiempoSoltarFruta >= 420) { // cada 4 segundos
       soltarFruta();
-      tiempoSoltarFruta = 0;
+      this.tiempoSoltarFruta = 0;
     }
 
-    for (int i = fruta.size() - 1; i >= 0; i--) {
-      Fruta f = fruta.get(i);
+    for (int i = this.fruta.size() - 1; i >= 0; i--) {
+      Fruta f = this.fruta.get(i);
       f.mover(1);
       f.explotar(personaje);
       if (f.detonar) {
-        fruta.remove(i);
+        this.fruta.remove(i);
         //println("fruta eliminada");
       }
     }

@@ -39,12 +39,13 @@ class Nivel02 {
         
         // Verificar colision con matriarca
         if (!colisiono) {
-          for (int h = spawnerMatriarca.matriarca.size() - 1; h >= 0; h--) {
-            Matriarca m = spawnerMatriarca.matriarca.get(h);
-            Collider colMatriarca = new Collider(m.posicion, m.tamanio);
+          for (int h = this.spawnerMatriarca.matriarca.size() - 1; h >= 0; h--) {
+            Matriarca m = this.spawnerMatriarca.matriarca.get(h);
+            Collider colMatriarca = new Collider(m.getPosicion(), m.getTamanio());
             if (b.colliderBala.hayColision(colMatriarca)) {
-              m.vida -= b.danioBala;
-              if (m.vida <= 0) { //solo cuenta si el dino llego a 0 y no fue eliminado por el spawner
+              //m.vida -= b.danioBala;
+              m.setVida(m.getVida() - b.getDanioBala());
+              if (m.getVida() <= 0) { //solo cuenta si el dino llego a 0 y no fue eliminado por el spawner
                 estadoJuego = MaquinaEstadosJuego.VICTORIA;
                 println("GANASTE EL JUEGO FELICIDADES");
               }
@@ -56,7 +57,7 @@ class Nivel02 {
         
 
         // Si algun dinosarurio colisiono o se salio de pantalla se elimina
-        if (colisiono || b.posicion.x < 0 || b.posicion.x > width || b.posicion.y < 0 || b.posicion.y > height) {
+        if (colisiono || b.getPosicion().x < 0 || b.getPosicion().x > width || b.getPosicion().y < 0 || b.getPosicion().y > height) {
           personaje.bala.remove(i);
         }
       }

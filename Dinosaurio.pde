@@ -15,7 +15,8 @@ class Dinosaurio extends GameObject {
   public void dibujar() {
     fill(#144006);
     noStroke();
-    ellipse(posicion.x, posicion.y, tamanio.x, tamanio.y);
+    //ellipse(posicion.x, posicion.y, tamanio.x, tamanio.y);
+    ellipse(getPosicion().x, getPosicion().y, getTamanio().x, getTamanio().y);
   }
 
   public void mover() {

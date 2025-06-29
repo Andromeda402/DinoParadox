@@ -82,6 +82,10 @@ public void draw() {
 
   case MaquinaEstadosJuego.DERROTA:
     //derrota();
+    fill(#132B50);
+    textSize(44);
+    textAlign(CENTER);
+    text("FUERA DE COMBATE", width/2, height/2);
     break;
   }
 }

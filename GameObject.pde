@@ -23,7 +23,7 @@ class GameObject {
   }
   
   public PVector getTamanio(){
-    return posicion;
+    return tamanio;
   }
   
   public void setTamanio(PVector nuevoTamanio){

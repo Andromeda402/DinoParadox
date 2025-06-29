@@ -38,10 +38,10 @@ class Personaje extends GameObject {
     ellipse(posicion.x, posicion.y, tamanio.x, tamanio.y);
     println(vida);*/
     
-    if (vida <= 0) {
-    estadoAnimacion = MaquinaEstadosAnimacion.ANIMACION_MUERTE;
+    if (this.vida <= 0) {
+    this.estadoAnimacion = MaquinaEstadosAnimacion.ANIMACION_MUERTE;
   } else if (!arriba && !abajo && !izquierda && !derecha && estadoAnimacion != MaquinaEstadosAnimacion.ANIMACION_ATAQUE) {
-    estadoAnimacion = MaquinaEstadosAnimacion.ANIMACION_QUIETO;
+    this.estadoAnimacion = MaquinaEstadosAnimacion.ANIMACION_QUIETO;
   }
 
   spriteRenderer.mostrarAnimacion(estadoAnimacion);
@@ -54,26 +54,26 @@ class Personaje extends GameObject {
 
     case "arriba":
       {
-        posicion.y -= velocidad;
+        this.posicion.y -= this.velocidad;
         break;
       }
 
     case "abajo":
       {
-        posicion.y += velocidad;
+        this.posicion.y += this.velocidad;
         break;
       }
 
     case "izquierda":
       {
-        posicion.x -= velocidad;
+        this.posicion.x -= this.velocidad;
         estadoAnimacion = MaquinaEstadosAnimacion.ANIMACION_CAMINAR_IZQUIERDA;
         break;
       }
 
     case "derecha":
       {
-        posicion.x += velocidad;
+        this.posicion.x += this.velocidad;
         estadoAnimacion = MaquinaEstadosAnimacion.ANIMACION_CAMINAR_DERECHA;
         break;
       }
@@ -82,38 +82,38 @@ class Personaje extends GameObject {
 
   public void keyPressed() {
     if (key == 'w' || key == 'W') {
-      arriba = true;
+      this.arriba = true;
     }
 
     if (key == 's' || key == 'S') {
-      abajo = true;
+      this.abajo = true;
     }
 
     if (key == 'd' || key == 'D') {
-      derecha = true;
+      this.derecha = true;
     }
 
     if (key== 'a' || key == 'A') {
-      izquierda = true;
+      this.izquierda = true;
     }
   }
 
   public void keyReleased() {
 
     if (key == 'w' || key == 'W') {
-      arriba = false;
+      this.arriba = false;
     }
 
     if (key == 's' || key == 'S') {
-      abajo = false;
+      this.abajo = false;
     }
 
     if (key == 'd' || key == 'D') {
-      derecha = false;
+      this.derecha = false;
     }
 
     if (key== 'a' || key == 'A') {
-      izquierda = false;
+      this.izquierda = false;
     }
   }
 
