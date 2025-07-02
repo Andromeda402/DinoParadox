@@ -20,12 +20,12 @@ class Pterodactilo extends Dinosaurio {
 
   public void mover(Personaje personaje, Dinosaurio dinosaurio) {
     if (this.cambioSentido == true) {
-      this.posicion.x += dinosaurio.getVelocidad();
+      this.posicion.x += dinosaurio.getVelocidad() * deltaTime;
       if (posicion.x + tamanio.x / 2 >= width) {
         this.cambioSentido = false;
       }
     } else {
-      this.posicion.x -= dinosaurio.getVelocidad();
+      this.posicion.x -= dinosaurio.getVelocidad() * deltaTime;
       if (this.posicion.x - dinosaurio.getTamanio().x / 2 <= 0) {
         this.cambioSentido = true;
       }

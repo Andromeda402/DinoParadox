@@ -11,7 +11,7 @@ class Matriarca extends Dinosaurio {  //reutilizacion del spawner de los
     this.fruta = new ArrayList<Fruta>();
     this.colliderMatriarca = new Collider(this.posicion, this.tamanio);
     
-    this.limiteFruta = 10;
+    this.limiteFruta = 35;
   }
 
   public void dibujar() {
@@ -39,9 +39,9 @@ class Matriarca extends Dinosaurio {  //reutilizacion del spawner de los
 
     if (distanciaPersonaje > 1) {
       
-      this.posicion.x += dx / distanciaPersonaje * getVelocidad();
+      this.posicion.x += dx / distanciaPersonaje * getVelocidad() * deltaTime;
       
-      this.posicion.y += dy / distanciaPersonaje * getVelocidad();
+      this.posicion.y += dy / distanciaPersonaje * getVelocidad() * deltaTime;
     }
   }
 

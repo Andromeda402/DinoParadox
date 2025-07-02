@@ -13,7 +13,7 @@ class Velociraptor extends Dinosaurio {
 
   public void mover() {
 
-    this.posicion.x += this.velocidad;
+    this.posicion.x += this.velocidad * deltaTime;
     
   }
 

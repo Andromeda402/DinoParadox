@@ -9,8 +9,8 @@ class Nivel02 {
     personaje = new Personaje(
       new PVector (300, 400), //posicion
       new PVector(40, 40), //tamanio
-      4, // velocidad
-      600, //vidas
+      160, // velocidad
+      20, //vidas
       color(#1C3E98)); //color
     spawnerMatriarca = new SpawnerDinosaurio();
   
@@ -61,6 +61,11 @@ class Nivel02 {
           personaje.bala.remove(i);
         }
       }
+      
+      if(personaje.getVida() <= 0){
+      estadoJuego = MaquinaEstadosJuego.DERROTA;
+      println("FUERA DE COMBATE");
+     }
     }
   
 

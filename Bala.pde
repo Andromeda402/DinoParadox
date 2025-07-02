@@ -23,7 +23,7 @@ class Bala extends GameObject {
     this.direccionProyectil = new PVector(this.distMouseX /this.magnitud, this.distMouseY /this.magnitud);
 
 
-    this.velocidad = 8;
+    this.velocidad = 540;
     this.danioBala = 1;
     this.teclaEspacio = false;
     this.colliderBala = new Collider(this.posicion, this.tamanio);
@@ -40,8 +40,8 @@ class Bala extends GameObject {
 
   public void mover() {
     
-    this.posicion.x += this.direccionProyectil.x * this.velocidad;
-    this.posicion.y += this.direccionProyectil.y * this.velocidad;
+    this.posicion.x += this.direccionProyectil.x * this.velocidad * deltaTime;
+    this.posicion.y += this.direccionProyectil.y * this.velocidad * deltaTime;
   }
   
 

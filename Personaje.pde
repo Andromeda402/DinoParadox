@@ -54,26 +54,26 @@ class Personaje extends GameObject {
 
     case "arriba":
       {
-        this.posicion.y -= this.velocidad;
+        this.posicion.y -= this.velocidad * deltaTime;
         break;
       }
 
     case "abajo":
       {
-        this.posicion.y += this.velocidad;
+        this.posicion.y += this.velocidad * deltaTime;
         break;
       }
 
     case "izquierda":
       {
-        this.posicion.x -= this.velocidad;
+        this.posicion.x -= this.velocidad * deltaTime;
         estadoAnimacion = MaquinaEstadosAnimacion.ANIMACION_CAMINAR_IZQUIERDA;
         break;
       }
 
     case "derecha":
       {
-        this.posicion.x += this.velocidad;
+        this.posicion.x += this.velocidad * deltaTime;
         estadoAnimacion = MaquinaEstadosAnimacion.ANIMACION_CAMINAR_DERECHA;
         break;
       }

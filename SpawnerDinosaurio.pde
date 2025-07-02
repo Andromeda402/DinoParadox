@@ -57,12 +57,12 @@ class SpawnerDinosaurio {
 
   public void generarVelociraptor() {
 
-    Velociraptor v = new Velociraptor(
-      new PVector(0, random(300, height -50)),
-      new PVector(50, 50),
-      2,
-      1,
-      1
+    Velociraptor v = new Velociraptor( 
+      new PVector(0, random(300, height -50)), // posicion
+      new PVector(50, 50), //tamanio
+      2, // vida
+      65, // velocidad
+      1 // danio
       );
 
 
@@ -74,11 +74,11 @@ class SpawnerDinosaurio {
   public void generarPterodactilo() {
 
     Pterodactilo p = new Pterodactilo(
-      new PVector(0, random(100, height - 450)),
+      new PVector(0, random(100, height - 450)), // posicion
       new PVector(50, 50),
-      1,
-      1,
-      1
+      1, // vida
+      60, // velocidad
+      1 // danio
       );
 
     for (int i = 0; i < 8-1; i++) {
@@ -89,11 +89,11 @@ class SpawnerDinosaurio {
   public void generarTriceratops(){
     
     Triceratops t = new Triceratops(
-      new PVector(0, random(300, height - 50)),
+      new PVector(0, random(300, height - 50)), // posicion
       new PVector(80, 80),
-      8,
-      0.20,
-      1
+      8, // vida
+      10, // velocidad
+      1 // danio
       );
 
     for (int i = 0; i < 8-1; i++) {
@@ -104,11 +104,11 @@ class SpawnerDinosaurio {
   public void generarMatriarca(){
     
     Matriarca m = new Matriarca(
-      new PVector(0, random(300, height - 50)),
+      new PVector(0, random(300, height - 50)), // posicion
       new PVector(100, 100),
-      20,
-      0.30,
-      1
+      20, // vida
+      5, // velocidad
+      1 // danio
       );
 
     for (int i = 0; i < 1; i++) {

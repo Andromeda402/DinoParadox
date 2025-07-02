@@ -11,6 +11,12 @@ PImage fondoMenu;
 PImage fondoIntro;
 PImage cientifico;
 
+int tiempoAnterior;
+int tiempoActual;
+
+//tiempo transcurrido entre un frame y otro frame (segundos)
+float deltaTime;
+
 
 public void setup() {
   size(800, 600);
@@ -33,12 +39,20 @@ public void setup() {
   nivel02 = new Nivel02(spritePersonaje);
 
   estadoJuego = MaquinaEstadosJuego.MENU;
+  
+  tiempoAnterior = millis();
+
 }
 
 
 
 public void draw() {
+  
+  tiempoActual = millis();
+  deltaTime = (tiempoActual - tiempoAnterior) / 1000.0; //segundos
+  tiempoAnterior = tiempoActual;
   background(0);
+
 
 
 

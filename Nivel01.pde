@@ -12,7 +12,7 @@ class Nivel01 {
     this.personaje = new Personaje(
       new PVector (300, 400), //posicion
       new PVector(40, 40), //tamanio
-      4, // velocidad
+      160, // velocidad
       20, //vidas 
       color(#1C3E98)); //color
     this.spawnerVelociraptor = new SpawnerDinosaurio();
@@ -109,8 +109,11 @@ class Nivel01 {
         if (colisiono || b.getPosicion().x < 0 || b.getPosicion().x > width || b.getPosicion().y < 0 || b.getPosicion().y > height) {
           personaje.bala.remove(i);
         }
+        
       }
+      
     }
+    
 
     //contador para los dinosaurios eliminados por el jugador
     if (this.contadorEliminaciones >= 10) { //se deben eliminar x cantidad de dinosaurios para llegar al siguiente nivel

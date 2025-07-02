@@ -23,8 +23,8 @@ class Triceratops extends Dinosaurio {
       //this.posicion.x += dx / distanciaPersonaje * velocidad;
       //this.posicion.y += dy / distanciaPersonaje * velocidad;
       
-      this.posicion.x += dx / distanciaPersonaje * dinosaurio.getVelocidad();
-      this.posicion.y += dy / distanciaPersonaje * dinosaurio.getVelocidad();
+      this.posicion.x += dx / distanciaPersonaje * dinosaurio.getVelocidad() * deltaTime;
+      this.posicion.y += dy / distanciaPersonaje * dinosaurio.getVelocidad() * deltaTime;
     }
   }
   

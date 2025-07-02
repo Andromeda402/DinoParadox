@@ -9,7 +9,7 @@ class Fruta extends GameObject {
 
   public Fruta(PVector posicion, PVector tamanio) {
     super(posicion, tamanio);
-    this.velocidad = 1;
+    this.velocidad = 90;
     this.danio = 1;
     this.duracion = 700;
     this.colliderFruta = new Collider(this.posicion, this.tamanio);
@@ -32,7 +32,7 @@ class Fruta extends GameObject {
         //posicion.y += velocidad;
 
 
-        this.posicion.y += this.velocidad;
+        this.posicion.y += this.velocidad * deltaTime;
 
 
         if (this.posicion.y > height) {
@@ -44,8 +44,8 @@ class Fruta extends GameObject {
 
   public void moverMultiples() {
 
-    this.posicion.x += this.direccion.x * this.velocidad;
-    this.posicion.y += this.direccion.y * this.velocidad;
+    this.posicion.x += this.direccion.x * this.velocidad * deltaTime;
+    this.posicion.y += this.direccion.y * this.velocidad * deltaTime;
     this.duracion -= 1;
   }
 
