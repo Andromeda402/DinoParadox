@@ -1,9 +1,12 @@
 class Nivel02 {
+  
+  // ======== ATRIBUTOS ========
 
   private Personaje personaje;
   private SpawnerDinosaurio spawnerMatriarca;
   private SpriteRenderer spriteRendererer;// esto agregue
-
+  
+  // ======== CONSTRUCTOR ========
 
   public Nivel02(PImage spritePersonaje) {
     personaje = new Personaje(
@@ -17,7 +20,9 @@ class Nivel02 {
    // spriteRenderer = new SpriteRenderer();//esto agregue
     personaje.spriteRenderer.cambiarImagen(spritePersonaje); 
   }
-
+  
+  // ======== METODOS ========
+  
   public void iniciar() {
     
     
@@ -90,11 +95,13 @@ class Nivel02 {
     personaje.keyReleased();
   }
   
-  public Personaje personaje(){
+  // ======== GETTERS & SETTERS ========
+  
+  public Personaje getPersonaje(){
     return personaje;
   }
   
-  public void getPersonaje(Personaje nuevoPersonaje){
+  public void setPersonaje(Personaje nuevoPersonaje){
     this.personaje = nuevoPersonaje;
   }
   

@@ -1,7 +1,12 @@
 class PantallaMenu extends Pantalla {
+  
+  // ======== ATRIBUTOS ========
+  
   private Boton botonJugar;
   private Boton botonSalir;
   private PImage cientifico;
+  
+  // ======== CONSTRUCTOR ========
 
   public PantallaMenu(PImage fondo, PImage cientifico) {
     super(fondo);
@@ -9,7 +14,9 @@ class PantallaMenu extends Pantalla {
     botonJugar = new Boton("Jugar", width/2 - 75, 250, 150, 40);
     botonSalir = new Boton("Salir", width/2 - 75, 310, 150, 40);
   }
-
+  
+  // ======== METODOS ========
+  
   public void dibujar() {
     dibujarFondo();
 
@@ -39,6 +46,7 @@ class PantallaMenu extends Pantalla {
     }
   }
   
+  // ======== GETTERS & SETTERS ========
   
   public Boton getBotonJugar(){
     return botonJugar;

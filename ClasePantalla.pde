@@ -1,14 +1,17 @@
 abstract class Pantalla {
+  
+  // ======== ATRIBUTOS ========
+  
   protected PImage fondo;
+  
+  // ======== CONSTRUCTOR ========
 
   public Pantalla(PImage fondo) {
     this.fondo = fondo;
   }
 
-  /*void dibujarFondo() {
-    image(fondo, 0, 0, width, height);
-  }*/
-  //agregue esto
+  // ======== METODOS ========
+  
   public void dibujarFondo() {
     if (fondo != null) {
       image(fondo, 0, 0, width, height);
@@ -20,6 +23,8 @@ abstract class Pantalla {
 
   public abstract void dibujar();
   public abstract void mousePressed(float mx, float my);
+  
+  // ======== GETTERS & SETTERS ========
   
   public PImage getFondo(){
     return fondo;

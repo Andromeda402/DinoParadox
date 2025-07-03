@@ -1,13 +1,19 @@
 class Collider {
+  
+  // ======== ATRIBUTOS ========
 
   private PVector posicion;
   private PVector tamanio;
-  //float radio;
 
+  
+  // ======== CONSTRUCTOR ========
+  
   public Collider(PVector posicion, PVector tamanio) {
     this.posicion = posicion;
     this.tamanio = tamanio;
   }
+  
+  // ======== METODOS ========
 
   public boolean hayColision(Collider collider) {
 
@@ -30,6 +36,8 @@ class Collider {
 
     return distanciaCuadrada <= sumaRadiosCuadrada;
   }
+  
+  // ======== GETTERS & SETTERS ========
   
   public PVector getPosicion(){
     return posicion;

@@ -1,13 +1,19 @@
 class Pterodactilo extends Dinosaurio {
+  
+  // ======== ATRIBUTOS ========
 
   private boolean cambioSentido;
   private int tiempoSoltarFruta;
   private ArrayList<Fruta> fruta;
+  
+  // ======== CONSTRUCTOR ========
 
   public Pterodactilo(PVector posicion, PVector tamanio, int vida, float velocidad, int danio) {
     super(posicion, tamanio, vida, velocidad, danio);
     this.fruta = new ArrayList<Fruta>();
   }
+  
+  // ======== METODOS ========
 
   public void dibujar() {
     fill(#FFA500);
@@ -52,6 +58,8 @@ class Pterodactilo extends Dinosaurio {
   public void soltarFruta() {
     fruta.add(new Fruta(new PVector(posicion.x, posicion.y), new PVector(15, 15)));
   }
+  
+  // ======== GETTERS & SETTERS ========
 
   public boolean conVida() {
     return vida > 0;

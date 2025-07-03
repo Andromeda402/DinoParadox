@@ -1,7 +1,7 @@
-
-//FALTA ENCAPSULACION
-
 class SpriteRenderer {
+  
+  // ======== ATRIBUTOS ========
+  
   private PImage spriteSheet;
 
   private int anchoFrame;
@@ -14,8 +14,9 @@ class SpriteRenderer {
 
   private GameObject objeto;
   private boolean hayImagen;
-
-  // Constructor
+  
+  // ======== CONSTRUCTOR ========
+  
   public SpriteRenderer(GameObject objeto) {
     this.objeto = objeto;
 
@@ -28,6 +29,8 @@ class SpriteRenderer {
 
     this.hayImagen = false;
   }
+  
+  // ======== METODOS ========
 
   // Cargar imagen del sprite sheet
  /* public void cambiarImagen(PImage nuevaImagen) {
@@ -118,6 +121,8 @@ class SpriteRenderer {
       contadorFrames = 0;
     }
   }
+  
+  // ======== GETTERS & SETTERS ========
   
   public PImage getSpriteSheet(){
     return spriteSheet;

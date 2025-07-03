@@ -1,4 +1,6 @@
 class Nivel01 {
+  
+  // ======== ATRIBUTOS ========
  
   private Personaje personaje;
   private SpawnerDinosaurio spawnerVelociraptor;
@@ -6,7 +8,8 @@ class Nivel01 {
   private SpawnerDinosaurio spawnerTriceratops;
 
   private int contadorEliminaciones;
-
+  
+  // ======== CONSTRUCTOR ========
 
   public Nivel01(PImage spritePersonaje) {
     this.personaje = new Personaje(
@@ -23,6 +26,8 @@ class Nivel01 {
     
     this.contadorEliminaciones = 0;
   }
+  
+  // ======== METODOS ========
 
   public void iniciar() {
     
@@ -148,6 +153,8 @@ class Nivel01 {
 
     personaje.keyReleased();
   }
+  
+  // ======== GETTERS & SETTERS ========
   
   public Personaje getPersonaje(){
     return personaje;

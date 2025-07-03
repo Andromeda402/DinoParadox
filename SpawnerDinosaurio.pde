@@ -1,4 +1,6 @@
 class SpawnerDinosaurio {
+  
+  // ======== ATRIBUTOS ========
 
   private ArrayList<Velociraptor> velociraptor;
   private int tiempoRecargaV;
@@ -17,7 +19,8 @@ class SpawnerDinosaurio {
   private int contadorM;
   private boolean matriarcaGenerada;
   
-
+  // ======== CONSTRUCTOR ========
+  
   public SpawnerDinosaurio() {
     this.velociraptor = new ArrayList<Velociraptor>();
     this.pterodactilo = new ArrayList<Pterodactilo>();
@@ -35,6 +38,8 @@ class SpawnerDinosaurio {
     this.matriarcaGenerada = false;
     
   }
+  
+  // ======== METODOS ========
 
   public void dibujar() {
     for (Velociraptor v : this.velociraptor) {
@@ -207,6 +212,8 @@ class SpawnerDinosaurio {
       
     }
   }
+  
+  // ======== GETTERS & SETTERS ========
   
   public ArrayList getVelociraptor(){
     return velociraptor;

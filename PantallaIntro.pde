@@ -1,4 +1,7 @@
 class PantallaIntro extends Pantalla {
+  
+  // ======== ATRIBUTOS ========
+  
   private String[] historia = {
     "Escuchen con atención...",
     "El mundo terminó con un rugido, no con un suspiro...",
@@ -17,11 +20,14 @@ class PantallaIntro extends Pantalla {
   private int lineaActual = 0;
   private PImage cientifico;
   
+  // ======== CONSTRUCTOR ========
 
   public PantallaIntro(PImage fondo, PImage cientifico) {
     super(fondo);
     this.cientifico = cientifico;
   }
+  
+  // ======== METODOS ========
 
   public void dibujar() {
     dibujarFondo();
@@ -49,10 +55,7 @@ class PantallaIntro extends Pantalla {
     }
   }
   
-  
-  
-  
-  
+  // ======== GETTERS & SETTERS ========
   
   public String[] getHistoria(){
     return historia;

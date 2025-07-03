@@ -1,10 +1,14 @@
 class Matriarca extends Dinosaurio {  //reutilizacion del spawner de los 
                                       //dinosaurios para generar a la matriarca
+  
+  // ======== ATRIBUTOS ========
 
   private Collider colliderMatriarca;
   private int tiempoSoltarFruta;
   private ArrayList<Fruta> fruta;
   private int limiteFruta;
+  
+  // ======== CONSTRUCTOR ========
   
   public Matriarca (PVector posicion, PVector tamanio, int vida, float velocidad, int danio) {
     super(posicion, tamanio, vida, velocidad, danio);
@@ -13,6 +17,8 @@ class Matriarca extends Dinosaurio {  //reutilizacion del spawner de los
     
     this.limiteFruta = 35;
   }
+  
+  // ======== METODOS ========
 
   public void dibujar() {
     fill(#DE0000);
@@ -79,8 +85,9 @@ class Matriarca extends Dinosaurio {  //reutilizacion del spawner de los
 
     
   }
-
-
+  
+  // ======== GETTERS & SETTERS ========
+  
   public boolean conVida() {
     return vida > 0;
   }

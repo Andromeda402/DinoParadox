@@ -1,11 +1,17 @@
 class Velociraptor extends Dinosaurio {
+  
+  // ======== ATRIBUTOS ========
 
   private Collider colliderVelociraptor;
+  
+  // ======== CONSTRUCTOR ========
 
   public Velociraptor(PVector posicion, PVector tamanio, int vida, float velocidad, int danio) {
     super(posicion, tamanio, vida, velocidad, danio);
     colliderVelociraptor = new Collider(this.posicion, this.tamanio);
   }
+  
+  // ======== METODOS ========
 
   public void dibujar() {
     super.dibujar();
@@ -28,7 +34,8 @@ class Velociraptor extends Dinosaurio {
       dinosaurio.setVida(0);
     }
   }
-
+  
+  // ======== GETTERS & SETTERS ========
 
   public boolean conVida() {
     return vida > 0;

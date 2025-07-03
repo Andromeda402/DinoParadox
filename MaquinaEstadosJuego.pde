@@ -7,5 +7,4 @@ class MaquinaEstadosJuego{
   public static final int VICTORIA = 4;
   public static final int DERROTA = 5;
   
-  //public static final int JUGANDO = 2;
 }

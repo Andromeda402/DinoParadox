@@ -1,8 +1,13 @@
 class PantallaJuego extends Pantalla {
+  
+  // ======== CONSTRUCTOR ========
+  
   public PantallaJuego(PImage fondo) {
     super(fondo);
   }
-
+  
+  // ======== METODOS ========
+  
   public void dibujar() {
     dibujarFondo();
 

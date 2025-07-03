@@ -1,12 +1,18 @@
 class Triceratops extends Dinosaurio {
   
+  // ======== ATRIBUTOS ========
+  
   private Collider colliderTriceratops;
+  
+  // ======== CONSTRUCTOR ========
   
   public Triceratops(PVector posicion, PVector tamanio, int vida, float velocidad, int danio) {
     super(posicion, tamanio, vida, velocidad, danio);
     this.colliderTriceratops = new Collider(this.posicion, this.tamanio);
   }
-
+  
+  // ======== METODOS ========
+  
   public void dibujar() {
     fill(#4B2603);
     ellipse(getPosicion().x, getPosicion().y, getTamanio().x, getTamanio().y);
@@ -41,6 +47,7 @@ class Triceratops extends Dinosaurio {
     }
   }
   
+  // ======== GETTERS & SETTERS ========
   
   public boolean conVida() {
     return vida > 0;

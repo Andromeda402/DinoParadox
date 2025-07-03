@@ -1,6 +1,11 @@
 class Boton {
+  
+  // ======== ATRIBUTOS ========
+  
   private String etiqueta;
   private float x, y, w, h;
+  
+  // ======== CONSTRUCTOR ========
 
   Boton(String etiqueta, float x, float y, float w, float h) {
     this.etiqueta = etiqueta;
@@ -9,6 +14,8 @@ class Boton {
     this.w = w;
     this.h = h;
   }
+  
+  // ======== METODOS ========
 
   public void dibujar() {
     if (estaSobre(mouseX, mouseY)) {
@@ -23,6 +30,8 @@ class Boton {
     textSize(20);
     text(etiqueta, x + w/2, y + h/2);
   }
+  
+  // ======== GETTERS & SETTERS ========
 
   public boolean estaSobre(float mx, float my) {
     return mx > x && mx < x + w && my > y && my < y + h;
@@ -35,13 +44,6 @@ class Boton {
   public void setEtiqueta(String nuevaEtiqueta) {
     this.etiqueta = nuevaEtiqueta;
   }
-  
-  
-
-  
-  
-  
-  
   
   
 }

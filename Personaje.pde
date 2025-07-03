@@ -1,4 +1,6 @@
 class Personaje extends GameObject {
+  
+  // ======== ATRIBUTOS ========
 
   private float velocidad;
   private int vida;
@@ -8,6 +10,8 @@ class Personaje extends GameObject {
   private int estadoAnimacion;
   
   private SpriteRenderer spriteRenderer;
+  
+  // ======== CONSTRUCTOR ========
 
   public Personaje(PVector posicion, PVector tamanio, float velocidad, int vida, color colorPersonaje) {
     super(posicion, tamanio);
@@ -25,6 +29,8 @@ class Personaje extends GameObject {
                                                     //permite al renderer que pueda acceder a su posicion y tamanio
     
   }
+  
+  // ======== METODOS ========
   
   //esto agregue
   public void setSpriteImage(PImage img) {
@@ -125,6 +131,7 @@ class Personaje extends GameObject {
       ));
   }
   
+  // ======== GETTERS & SETTERS ========
   
   public float getVelocidad(){
     return velocidad;

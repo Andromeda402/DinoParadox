@@ -1,9 +1,12 @@
 class Dinosaurio extends GameObject {
+  
+  // ======== ATRIBUTOS ========
 
   protected int vida;
   protected float velocidad;
   protected int danio;
-
+  
+  // ======== CONSTRUCTOR ========
 
   public Dinosaurio(PVector posicion, PVector tamanio, int vida, float velocidad, int danio) {
     super(posicion, tamanio);
@@ -11,6 +14,8 @@ class Dinosaurio extends GameObject {
     this.velocidad = velocidad;
     this.danio = danio;
   }
+  
+  // ======== METODOS ========
 
   public void dibujar() {
     fill(#144006);
@@ -21,6 +26,8 @@ class Dinosaurio extends GameObject {
 
   public void mover() {
   }
+  
+  // ======== GETTERS & SETTERS ========
   
   public int getVida(){
     return vida;

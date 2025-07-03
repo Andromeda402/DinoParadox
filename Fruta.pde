@@ -1,4 +1,6 @@
 class Fruta extends GameObject {
+  
+  // ======== ATRIBUTOS ========
 
   private float velocidad;
   private boolean detonar;
@@ -6,6 +8,8 @@ class Fruta extends GameObject {
   private Collider colliderFruta;
   private float duracion;
   private PVector direccion;
+  
+  // ======== CONSTRUCTOR ========
 
   public Fruta(PVector posicion, PVector tamanio) {
     super(posicion, tamanio);
@@ -16,6 +20,8 @@ class Fruta extends GameObject {
 
     this.direccion = new PVector(random(-1, 1), random(-1, 1));
   }
+  
+  // ======== METODOS ========
 
   public void dibujar() {
     fill(#370C48);
@@ -59,6 +65,8 @@ class Fruta extends GameObject {
       this.detonar = true;
     }
   }
+  
+  // ======== GETTERS & SETTERS ========
 
   public float getVelocidad() {
     return velocidad;

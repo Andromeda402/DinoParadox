@@ -1,4 +1,6 @@
 class Bala extends GameObject {
+  
+  // ======== ATRIBUTOS ========
 
   private PVector posDestino;
   private PVector direccionProyectil;
@@ -10,6 +12,8 @@ class Bala extends GameObject {
   private float distMouseX;
   private float distMouseY;
   private float magnitud;;
+  
+  // ======== CONSTRUCTOR ========
 
   public Bala(PVector posicion, PVector tamanio, PVector posDestino) {
     super(posicion, tamanio);
@@ -28,7 +32,9 @@ class Bala extends GameObject {
     this.teclaEspacio = false;
     this.colliderBala = new Collider(this.posicion, this.tamanio);
   }
-
+  
+  // ======== METODOS ========
+  
   public void dibujar() {
 
     fill(#E1ED67);
@@ -68,6 +74,7 @@ class Bala extends GameObject {
     }
   }
   
+  // ======== GETTERS & SETTERS ========
   
   public PVector getPosDestino(){
     return posDestino;
