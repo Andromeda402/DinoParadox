@@ -28,7 +28,9 @@ class PantallaIntro extends Pantalla {
   }
   
   // ======== METODOS ========
-
+  
+  //dibuja los objetos que conforman la introduccion de
+  //la historia del juego
   public void dibujar() {
     dibujarFondo();
 

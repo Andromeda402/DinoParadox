@@ -17,6 +17,7 @@ class PantallaMenu extends Pantalla {
   
   // ======== METODOS ========
   
+  //dibuja los objetos que conforman al menu
   public void dibujar() {
     dibujarFondo();
 

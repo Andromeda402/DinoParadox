@@ -13,11 +13,13 @@ class Triceratops extends Dinosaurio {
   
   // ======== METODOS ========
   
+  //dibuja una ellipse con color naranja
   public void dibujar() {
     fill(#4B2603);
     ellipse(getPosicion().x, getPosicion().y, getTamanio().x, getTamanio().y);
   }
 
+  //el dinosaurio se mueve persiguiendo al personaje lentamente
   public void mover(Personaje personaje, Dinosaurio dinosaurio) {
 
     float dx = personaje.getPosicion().x - this.posicion.x;
@@ -34,16 +36,14 @@ class Triceratops extends Dinosaurio {
     }
   }
   
+  //el dinosaurio ataca al personaje cuando esta cuerpo a cuerpo
   public void atacar(Personaje personaje) {
     Collider colliderPersonaje = new Collider(personaje.getPosicion(), personaje.getTamanio());
 
-    if (colliderPersonaje.hayColision(colliderTriceratops)) { //falta encapsulacion borrar este mensaje
-      //personaje.vida -= this.danio;
+    if (colliderPersonaje.hayColision(colliderTriceratops)) {
       
       personaje.setVida(personaje.getVida() - this.danio);
-      //this.vida  = 0;
-      
-      //personaje.setVida(0);
+ 
     }
   }
   

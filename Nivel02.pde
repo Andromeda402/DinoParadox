@@ -42,7 +42,7 @@ class Nivel02 {
 
       
         
-        // Verificar colision con matriarca
+        // Verificar colision de matriarca con bala
         if (!colisiono) {
           for (int h = this.spawnerMatriarca.matriarca.size() - 1; h >= 0; h--) {
             Matriarca m = this.spawnerMatriarca.matriarca.get(h);
@@ -67,13 +67,14 @@ class Nivel02 {
         }
       }
       
+      //si el personaje es derrotado se pasa a la pantalla DERROTA
       if(personaje.getVida() <= 0){
       estadoJuego = MaquinaEstadosJuego.DERROTA;
       println("FUERA DE COMBATE");
      }
     }
   
-
+  //verificar controles
   public void mover() {
     if (personaje.arriba) personaje.mover("arriba");
     if (personaje.abajo) personaje.mover("abajo");

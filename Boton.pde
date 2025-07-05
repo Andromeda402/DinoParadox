@@ -16,6 +16,9 @@ class Boton {
   }
   
   // ======== METODOS ========
+  
+  //si el mouse esta sobre el boton pinta la figura de un color
+  //y sino lo esta entonces se pintara de otro color
 
   public void dibujar() {
     if (estaSobre(mouseX, mouseY)) {

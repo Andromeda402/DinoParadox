@@ -1,5 +1,8 @@
 class GameObject {
   
+  //clase encargado de gestionar la posicion y
+  //el tamanio de los objetos
+  
   // ======== ATRIBUTOS ========
 
   protected PVector posicion;
@@ -12,11 +15,12 @@ class GameObject {
     this.tamanio = tamanio;
   }
   
+  
+  // ======== METODOS ========
+  
   //Aqui se sobrescriben los métodos dibujar() y mover() porque
   //las sublcases de Dinosaurio modifican el comportamiento original
   //de la clase padre
-  
-  // ======== METODOS ========
   
   public void dibujar(){};
   

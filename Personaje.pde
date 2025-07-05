@@ -37,6 +37,7 @@ class Personaje extends GameObject {
     spriteRenderer.cambiarImagen(img);
 }
 
+  //dibuja al personaje utilizando una ellipse
   public void dibujar() {
 
     /*fill(#1C3E98);
@@ -53,6 +54,7 @@ class Personaje extends GameObject {
   spriteRenderer.mostrarAnimacion(estadoAnimacion);
  
   }
+
 
   public void mover(String direccion) {
     
@@ -86,6 +88,7 @@ class Personaje extends GameObject {
     }
   }
 
+  //controles activos W, A, S, D
   public void keyPressed() {
     if (key == 'w' || key == 'W') {
       this.arriba = true;
@@ -103,7 +106,8 @@ class Personaje extends GameObject {
       this.izquierda = true;
     }
   }
-
+  
+  //controles inactivos W, A, S, D
   public void keyReleased() {
 
     if (key == 'w' || key == 'W') {

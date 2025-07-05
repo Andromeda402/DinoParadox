@@ -29,17 +29,15 @@ class Matriarca extends Dinosaurio {  //reutilizacion del spawner de los
     }
   }
 
+//la matriarca se mueve hacia el personaje persiguiendolo
   public void mover(Personaje personaje) {
 
-    //float dx = personaje.posicion.x - this.posicion.x;
     
     float dx = personaje.getPosicion().x - getPosicion().x;
     
-    //float dy = personaje.posicion.y - this.posicion.y;
     
     float dy = personaje.getPosicion().y - getPosicion().y;
 
-    //float distanciaPersonaje = dist(personaje.posicion.x, personaje.posicion.y, this.posicion.x, this.posicion.y);
     
     float distanciaPersonaje = dist(personaje.getPosicion().x, personaje.getPosicion().y, getPosicion().x, getPosicion().y);
 
@@ -51,7 +49,7 @@ class Matriarca extends Dinosaurio {  //reutilizacion del spawner de los
     }
   }
 
-
+  //metodo para atacar al personaje si esta cuerpo a cuerpo
   public void atacar(Personaje personaje) {
     Collider colliderPersonaje = new Collider(personaje.getPosicion(), personaje.getTamanio());
 
@@ -61,6 +59,7 @@ class Matriarca extends Dinosaurio {  //reutilizacion del spawner de los
     }
   }
 
+  //metodo para disparar multiples frutas a su alrededor
   public void dispararFruta(Personaje personaje) {
     this.tiempoSoltarFruta +=1;
 

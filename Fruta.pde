@@ -30,16 +30,17 @@ class Fruta extends GameObject {
   }
 
   public void mover(int tipoMovimiento) {
-
+    
+    //se utliza la estructura selectiva switch para
+    //integrar otros comportamientos mas adelante
     switch(tipoMovimiento) {
-
+      
+      //la fruta se mueve de arriba hacia abajo
     case 1:
       {
         //posicion.y += velocidad;
 
-
         this.posicion.y += this.velocidad * deltaTime;
-
 
         if (this.posicion.y > height) {
           this.detonar = true;
@@ -48,19 +49,22 @@ class Fruta extends GameObject {
     }
   }
 
+  //metodo dedicado a el jefe final
   public void moverMultiples() {
-
+    
+    //se mueve en diferente direcciones y va perdiendo su duracion
     this.posicion.x += this.direccion.x * this.velocidad * deltaTime;
     this.posicion.y += this.direccion.y * this.velocidad * deltaTime;
     this.duracion -= 1;
   }
 
 
+  //metodo para que las frutas le quiten vida al
+  //personaje cuando colisionan
   public void explotar(Personaje personaje) {
     Collider colliderPersonaje = new Collider(personaje.getPosicion(), personaje.getTamanio());
 
     if (colliderPersonaje.hayColision(this.colliderFruta)) {
-      //personaje.vida -= this.danio;
       personaje.setVida(personaje.getVida() - this.danio);
       this.detonar = true;
     }

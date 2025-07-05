@@ -14,7 +14,9 @@ class Pterodactilo extends Dinosaurio {
   }
   
   // ======== METODOS ========
-
+  
+  //dibuja al pterodactilo utilizando una ellipse de color verder
+  //y las frutas que suelta
   public void dibujar() {
     fill(#FFA500);
     ellipse(getPosicion().x, getPosicion().y, getTamanio().x, getTamanio().y);
@@ -24,6 +26,7 @@ class Pterodactilo extends Dinosaurio {
     }
   }
 
+  //el pterodactilo se mueve de izquierda a derecha de la pantalla
   public void mover(Personaje personaje, Dinosaurio dinosaurio) {
     if (this.cambioSentido == true) {
       this.posicion.x += dinosaurio.getVelocidad() * deltaTime;
@@ -55,6 +58,7 @@ class Pterodactilo extends Dinosaurio {
     }
   }
 
+  //suelta la fruta para dañar al jugador
   public void soltarFruta() {
     fruta.add(new Fruta(new PVector(posicion.x, posicion.y), new PVector(15, 15)));
   }

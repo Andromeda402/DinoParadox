@@ -38,7 +38,7 @@ class Bala extends GameObject {
   public void dibujar() {
 
     fill(#E1ED67);
-    ellipse(posicion.x, posicion.y, tamanio.x, tamanio.y);
+    //ellipse(posicion.x, posicion.y, tamanio.x, tamanio.y);
     
     ellipse(getPosicion().x, getPosicion().y, getTamanio().x, getTamanio().y);
     
@@ -53,15 +53,14 @@ class Bala extends GameObject {
 
   public void impactar(Dinosaurio dinosaurio) {
     Collider colliderDinosaurio = new Collider(dinosaurio.posicion, dinosaurio.tamanio);
-
+    
+    //si la bala impacta con un dinosaurio le quita vida
     if (colliderDinosaurio.hayColision(colliderBala)) {
       dinosaurio.setVida(dinosaurio.getVida() - this.danioBala);
     }
   }
 
-
-
-
+//Control ESPACIO para disparar
   public void keyPressed() {
     if (keyCode == ' ') {
       teclaEspacio = true;

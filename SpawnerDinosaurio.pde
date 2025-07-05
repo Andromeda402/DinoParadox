@@ -40,7 +40,8 @@ class SpawnerDinosaurio {
   }
   
   // ======== METODOS ========
-
+   
+  //para cada dinosaurio de su propio tipo se dibuja el dinoaurio
   public void dibujar() {
     for (Velociraptor v : this.velociraptor) {
       v.dibujar();
@@ -60,6 +61,7 @@ class SpawnerDinosaurio {
     
   }
 
+  //generador de velociraptores
   public void generarVelociraptor() {
 
     Velociraptor v = new Velociraptor( 
@@ -76,6 +78,7 @@ class SpawnerDinosaurio {
     }
   }
 
+  //generador de pterodactilos
   public void generarPterodactilo() {
 
     Pterodactilo p = new Pterodactilo(
@@ -91,6 +94,7 @@ class SpawnerDinosaurio {
     }
   }
   
+  //generador de triceratops
   public void generarTriceratops(){
     
     Triceratops t = new Triceratops(
@@ -106,6 +110,7 @@ class SpawnerDinosaurio {
     }
   }
   
+  //generador de matriarca (una sola)
   public void generarMatriarca(){
     
     Matriarca m = new Matriarca(
@@ -123,6 +128,9 @@ class SpawnerDinosaurio {
   }
   
 
+  //para cada dinosaurio se utiliza un metodo actualizar 
+  //para que se generen cada cierto tiempo y se 
+  //remuevan si ya no tienen vida
 
   public void actualizarVelociraptor() {
 

@@ -12,6 +12,8 @@ abstract class Pantalla {
 
   // ======== METODOS ========
   
+  //dibuja el fondo para las pantallas, en caso de no haber ninguno
+  //se mostrara un mensaje en consola
   public void dibujarFondo() {
     if (fondo != null) {
       image(fondo, 0, 0, width, height);
@@ -20,7 +22,9 @@ abstract class Pantalla {
       background(0); // Fondo negro de emergencia
     }
   }
-
+  
+  //cualquier clase que herede de la clase abstracta pantalla 
+  //esta obligada a implementar los metodos abstractos 
   public abstract void dibujar();
   public abstract void mousePressed(float mx, float my);
   

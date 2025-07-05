@@ -58,7 +58,7 @@ class Nivel01 {
 
         boolean colisiono = false;
 
-        // Verificar colision con velociraptores
+        // Verificar colision de velociraptores con bala
         for (int h = this.spawnerVelociraptor.velociraptor.size() - 1; h >= 0; h--) {
           Velociraptor v = this.spawnerVelociraptor.velociraptor.get(h);
           if (b.colliderBala.hayColision(v.getColliderVelociraptor())) {
@@ -73,7 +73,7 @@ class Nivel01 {
           }
         }
 
-        // Verificar colision con pterodactilos
+        // Verificar colision de pterodactilos con bala
         if (!colisiono) {
           for (int h = this.spawnerPterodactilo.pterodactilo.size() - 1; h >= 0; h--) {
             Pterodactilo p = this.spawnerPterodactilo.pterodactilo.get(h);
@@ -91,7 +91,7 @@ class Nivel01 {
           }
         }
 
-        // Verificar colision con triceratops
+        // Verificar colision de triceratops con bala
         if (!colisiono) {
           for (int h = this.spawnerTriceratops.triceratops.size() - 1; h >= 0; h--) {
             Triceratops p = this.spawnerTriceratops.triceratops.get(h);
@@ -121,11 +121,13 @@ class Nivel01 {
     
 
     //contador para los dinosaurios eliminados por el jugador
-    if (this.contadorEliminaciones >= 10) { //se deben eliminar x cantidad de dinosaurios para llegar al siguiente nivel
+    //se deben eliminar x cantidad de dinosaurios para llegar al siguiente nivel
+    if (this.contadorEliminaciones >= 10) { 
       estadoJuego = MaquinaEstadosJuego.JUGANDO_NIVEL02;
       println("¡Pasaste al Nivel 2 por eliminar " +contadorEliminaciones+ " dinosaurios!");
     }
     
+    //si el personaje se queda sin vidas se pasa a la pantalla DERROTA
     if(personaje.getVida() <= 0){
       estadoJuego = MaquinaEstadosJuego.DERROTA;
       println("FUERA DE COMBATE");
@@ -133,6 +135,7 @@ class Nivel01 {
     
   }
 
+  //verificar controles
   public void mover() {
     if (personaje.arriba) personaje.mover("arriba");
     if (personaje.abajo) personaje.mover("abajo");
