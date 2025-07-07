@@ -66,10 +66,13 @@ class SpawnerDinosaurio {
 
     Velociraptor v = new Velociraptor( 
       new PVector(0, random(300, height -50)), // posicion
-      new PVector(50, 50), //tamanio
+      new PVector(60, 60), //tamanio
       2, // vida
       65, // velocidad
-      1 // danio
+      1, // danio
+      raptorSheet,
+  4,  // columnas del spritesheet
+  5   // filas del spritesheet
       );
 
 
@@ -86,7 +89,10 @@ class SpawnerDinosaurio {
       new PVector(50, 50),
       1, // vida
       60, // velocidad
-      1 // danio
+      1, // danio
+      pteroSheet,
+  3,  // columnas del spritesheet
+  3  //filas
       );
 
     for (int i = 0; i < 8-1; i++) {
@@ -102,7 +108,10 @@ class SpawnerDinosaurio {
       new PVector(80, 80),
       8, // vida
       10, // velocidad
-      1 // danio
+      1, // danio
+      triceSheet,
+  4,  // columnas del spritesheet
+  5  //filas
       );
 
     for (int i = 0; i < 8-1; i++) {
@@ -118,12 +127,15 @@ class SpawnerDinosaurio {
       new PVector(100, 100),
       20, // vida
       5, // velocidad
-      1 // danio
+      1, // danio
+      matriarcaSheet,
+  4,  // columnas del spritesheet
+  4   // filas del spritesheet
       );
 
     for (int i = 0; i < 1; i++) {
       matriarca.add(m);
-      
+      println("Se creó una Matriarca");
     }
   }
   

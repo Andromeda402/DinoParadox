@@ -11,6 +11,10 @@ class Personaje extends GameObject {
   
   private SpriteRenderer spriteRenderer;
   
+  private boolean espacioPresionado = true;
+  private float cooldownDisparo = 0.2; // segundos
+  private float tiempoUltimoDisparo = 0;
+  
   // ======== CONSTRUCTOR ========
 
   public Personaje(PVector posicion, PVector tamanio, float velocidad, int vida, color colorPersonaje) {
@@ -105,6 +109,8 @@ class Personaje extends GameObject {
     if (key== 'a' || key == 'A') {
       this.izquierda = true;
     }
+    
+    if (key == ' ') espacioPresionado = false;
   }
   
   //controles inactivos W, A, S, D
@@ -125,14 +131,21 @@ class Personaje extends GameObject {
     if (key== 'a' || key == 'A') {
       this.izquierda = false;
     }
+    
+    if (key == ' ') espacioPresionado = true;
   }
 
   public void disparar() {
-    bala.add(new Bala(
+    float tiempoActual = millis() / 1000.0;
+    if (tiempoActual - tiempoUltimoDisparo >= cooldownDisparo) {
+    Bala nueva = new Bala(
       new PVector(this.posicion.x, this.posicion.y),
       new PVector(10, 10),
       new PVector(mouseX, mouseY)
-      ));
+    );
+    bala.add(nueva);
+    tiempoUltimoDisparo = tiempoActual;
+  }
   }
   
   // ======== GETTERS & SETTERS ========
@@ -216,5 +229,9 @@ class Personaje extends GameObject {
   public void setSpriteRenderer(SpriteRenderer nuevoSpriteRenderer){
     this.spriteRenderer = nuevoSpriteRenderer;
   }
+  
+  public boolean isEspacioPresionado() {
+  return espacioPresionado;
+}
     
 }

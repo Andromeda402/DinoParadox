@@ -1,118 +1,143 @@
-class Matriarca extends Dinosaurio {  //reutilizacion del spawner de los 
-                                      //dinosaurios para generar a la matriarca
+class Matriarca extends Dinosaurio {
   
-  // ======== ATRIBUTOS ========
+  // ======== ANIMACION ========
+  PImage sheet;
+  int cols, rows, fw, fh;
+  int cur = 0; 
+  int delay = 6;
+  int counter = 0;
+  
+  // ======== POSICION PARA DIBUJAR ========
+  float x, y;
+  boolean facingLeft = false;
 
+  // ======== ATRIBUTOS ========
   private Collider colliderMatriarca;
   private int tiempoSoltarFruta;
   private ArrayList<Fruta> fruta;
   private int limiteFruta;
   
-  // ======== CONSTRUCTOR ========
-  
-  public Matriarca (PVector posicion, PVector tamanio, int vida, float velocidad, int danio) {
+  // ======== CONSTRUCTOR CORREGIDO ========
+  public Matriarca(PVector posicion, PVector tamanio, int vida, float velocidad, int danio, PImage sheet, int cols, int rows) {
     super(posicion, tamanio, vida, velocidad, danio);
+    
     this.fruta = new ArrayList<Fruta>();
     this.colliderMatriarca = new Collider(this.posicion, this.tamanio);
-    
     this.limiteFruta = 35;
+    
+    this.sheet = sheet;
+    this.cols = cols;
+    this.rows = rows;
+    this.fw = sheet.width / cols;
+    this.fh = sheet.height / rows;
+    
+    this.x = posicion.x;
+    this.y = posicion.y;
   }
   
-  // ======== METODOS ========
-
+  // ======== DIBUJAR ========
   public void dibujar() {
-    fill(#DE0000);
-    ellipse(getPosicion().x, getPosicion().y, getTamanio().x, getTamanio().y);
-
+    // dibuja las frutas primero
     for (Fruta f : fruta) {
       f.dibujar();
     }
-  }
-
-//la matriarca se mueve hacia el personaje persiguiendolo
-  public void mover(Personaje personaje) {
 
     
-    float dx = personaje.getPosicion().x - getPosicion().x;
-    
-    
-    float dy = personaje.getPosicion().y - getPosicion().y;
-
-    
-    float distanciaPersonaje = dist(personaje.getPosicion().x, personaje.getPosicion().y, getPosicion().x, getPosicion().y);
-
-    if (distanciaPersonaje > 1) {
-      
-      this.posicion.x += dx / distanciaPersonaje * getVelocidad() * deltaTime;
-      
-      this.posicion.y += dy / distanciaPersonaje * getVelocidad() * deltaTime;
+    counter++;
+    if (counter >= delay) {
+      counter = 0;
+      cur = (cur + 1) % cols;
     }
+
+    // seleccion del frame
+    int sx = cur * fw;
+    int sy = getRow() * fh;
+
+    pushMatrix();
+    translate(posicion.x, posicion.y);
+    if (facingLeft) scale(-1, 1);
+    imageMode(CENTER);
+    image(sheet.get(sx, sy, fw, fh), 0, 0);
+    popMatrix();
   }
 
-  //metodo para atacar al personaje si esta cuerpo a cuerpo
+  // ======== MOVIMIENTO HACIA EL PERSONAJE ========
+  public void mover(Personaje personaje) {
+    float dx = personaje.getPosicion().x - posicion.x;
+    float dy = personaje.getPosicion().y - posicion.y;
+    float distancia = dist(personaje.getPosicion().x, personaje.getPosicion().y, posicion.x, posicion.y);
+    
+    // Dirección de sprite
+    facingLeft = dx < 0;
+
+    if (distancia > 1) {
+      posicion.x += dx / distancia * velocidad * deltaTime;
+      posicion.y += dy / distancia * velocidad * deltaTime;
+    }
+
+    colliderMatriarca.setPosicion(posicion);
+  }
+
+  // ======== ATAQUE CUERPO A CUERPO ========
   public void atacar(Personaje personaje) {
     Collider colliderPersonaje = new Collider(personaje.getPosicion(), personaje.getTamanio());
 
     if (colliderPersonaje.hayColision(colliderMatriarca)) {
-      //personaje.vida -= this.danio;
-      personaje.setVida(personaje.getVida() - this.danio);
+      personaje.setVida(personaje.getVida() - danio);
     }
   }
 
-  //metodo para disparar multiples frutas a su alrededor
+  // ======== DISPARO DE FRUTAS ========
   public void dispararFruta(Personaje personaje) {
-    this.tiempoSoltarFruta +=1;
+    tiempoSoltarFruta++;
 
-    if (this.tiempoSoltarFruta >= 20 && fruta.size() < this.limiteFruta) { 
-      //fruta.add(new Fruta(new PVector(getPosicion().x, getPosicion().y), new PVector(15, 15)));
-      
-      fruta.add(new Fruta(new PVector(getPosicion().x, getPosicion().y), new PVector(15, 15) ));
-      
-      this.tiempoSoltarFruta = 0;
+    if (tiempoSoltarFruta >= 20 && fruta.size() < limiteFruta) {
+      fruta.add(new Fruta(new PVector(posicion.x, posicion.y), new PVector(15, 15)));
+      tiempoSoltarFruta = 0;
     }
 
     for (int i = fruta.size() - 1; i >= 0; i--) {
       Fruta f = fruta.get(i);
       f.moverMultiples();
       f.explotar(personaje);
-      f.duracion -=1;
+      f.duracion--;
+
       if (f.detonar || f.duracion <= 0) {
         fruta.remove(i);
-        //println("fruta eliminada");
       }
     }
-
-    
   }
-  
+
   // ======== GETTERS & SETTERS ========
-  
   public boolean conVida() {
     return vida > 0;
   }
-  
-  public Collider getColliderMatriarca(){
+
+  public Collider getColliderMatriarca() {
     return colliderMatriarca;
   }
-  
-  public void setColliderMatriarca(Collider nuevoColliderMatriarca){
+
+  public void setColliderMatriarca(Collider nuevoColliderMatriarca) {
     this.colliderMatriarca = nuevoColliderMatriarca;
   }
-  
-  public ArrayList getFruta(){
+
+  public ArrayList<Fruta> getFruta() {
     return fruta;
   }
-  
-  public void setFruta(ArrayList nuevaFruta){
+
+  public void setFruta(ArrayList<Fruta> nuevaFruta) {
     this.fruta = nuevaFruta;
   }
-  
-  public int getlimiteFruta(){
+
+  public int getlimiteFruta() {
     return limiteFruta;
   }
-  
-  public void setLimiteFruta(int nuevoLimiteFruta){
+
+  public void setLimiteFruta(int nuevoLimiteFruta) {
     this.limiteFruta = nuevoLimiteFruta;
   }
-  
+
+  public int getRow() {
+    return 0;
+  }
 }

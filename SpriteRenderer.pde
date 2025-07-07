@@ -44,6 +44,9 @@ class SpriteRenderer {
     if (nuevaImagen != null) {
       this.spriteSheet = nuevaImagen;
       this.columnas = spriteSheet.width / anchoFrame;  // Aquí NO va a dar error si la imagen existe
+      this.hayImagen = true; // <-- ¡Faltaba esto!
+    this.frameActual = 0;
+    this.contadorFrames = 0;
     } else {
       println("ERROR: La imagen es null, revisa que esté en la carpeta data y el nombre sea correcto.");
     }

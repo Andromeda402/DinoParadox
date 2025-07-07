@@ -1,5 +1,16 @@
 class Pterodactilo extends Dinosaurio {
   
+  // ======== ANIMACION ========
+  PImage sheet;
+  int cols, rows, fw, fh;
+  int cur = 0; 
+  int delay = 6;
+  int counter = 0;
+  
+  // ======== POSICION PARA DIBUJAR ========
+  float x, y;
+  boolean facingLeft = false;
+  
   // ======== ATRIBUTOS ========
 
   private boolean cambioSentido;
@@ -8,9 +19,18 @@ class Pterodactilo extends Dinosaurio {
   
   // ======== CONSTRUCTOR ========
 
-  public Pterodactilo(PVector posicion, PVector tamanio, int vida, float velocidad, int danio) {
+  public Pterodactilo(PVector posicion, PVector tamanio, int vida, float velocidad, int danio, PImage sheet, int cols, int rows) {
     super(posicion, tamanio, vida, velocidad, danio);
     this.fruta = new ArrayList<Fruta>();
+    
+    this.sheet = sheet;
+    this.cols = cols;
+    this.rows = rows;
+    this.fw = sheet.width / cols;
+    this.fh = sheet.height / rows;
+    
+    this.x = posicion.x;
+    this.y = posicion.y;
   }
   
   // ======== METODOS ========
@@ -20,6 +40,30 @@ class Pterodactilo extends Dinosaurio {
   public void dibujar() {
     fill(#FFA500);
     ellipse(getPosicion().x, getPosicion().y, getTamanio().x, getTamanio().y);
+    
+    
+    
+    
+    counter++;
+    if (counter >= delay) {
+      counter = 0;
+      cur = (cur + 1) % cols;
+    }
+
+    // seleccion del frame
+    int sx = cur * fw;
+    int sy = getRow() * fh;
+
+    pushMatrix();
+    translate(posicion.x, posicion.y);
+    if (facingLeft) {
+    scale(-2.5, 2.5);  //INVERTIDO Y AGRANDADO
+  } else {
+    scale(0.2);        //AUMENTA TAMAÑO DEL SPRITE
+  }
+    imageMode(CENTER);
+    image(sheet.get(sx, sy, fw, fh), 0, 0);
+    popMatrix();
 
     for (Fruta f : this.fruta) {
       f.dibujar();
@@ -93,4 +137,7 @@ class Pterodactilo extends Dinosaurio {
     this.fruta = nuevaFruta;
   }
   
+  public int getRow() {
+    return 0;
+  }
 }

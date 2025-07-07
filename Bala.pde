@@ -61,7 +61,7 @@ class Bala extends GameObject {
   }
 
 //Control ESPACIO para disparar
-  public void keyPressed() {
+ /* public void keyPressed() {
     if (keyCode == ' ') {
       teclaEspacio = true;
     }
@@ -71,7 +71,7 @@ class Bala extends GameObject {
     if (keyCode == ' ') {
       teclaEspacio = false;
     }
-  }
+  }*/
   
   // ======== GETTERS & SETTERS ========
   

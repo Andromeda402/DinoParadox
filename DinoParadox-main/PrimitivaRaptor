@@ -1,0 +1,57 @@
+Velociraptor miRaptor;
+
+float raptorAutoSpeed = 2;
+boolean movingRight = true;
+
+void setup() {
+  size(600, 400);
+  miRaptor = new Velociraptor(width / 4, height - 100, 80, 80);
+}
+
+void draw() {
+  background(255);
+  stroke(0);
+  line(0, height - 20, width, height - 20);
+
+  if (movingRight) {
+    miRaptor.x += raptorAutoSpeed;
+  } else {
+    miRaptor.x -= raptorAutoSpeed;
+  }
+
+  if (miRaptor.x + miRaptor.w > width) {
+    miRaptor.x = width - miRaptor.w;
+    movingRight = false;
+  }
+
+  if (miRaptor.x < 0) {
+    miRaptor.x = 0;
+    movingRight = true;
+  }
+
+  miRaptor.display();
+}
+
+class Velociraptor {
+  private float x,y;
+  private float w,h;
+  
+  public Velociraptor(float tempX, float tempY, float tempW, float tempH){
+  x = tempX;
+  y = tempY;
+  w = tempW;
+  h = tempH;
+  }
+  
+  void display(){
+    fill(255, 0, 0);
+    rect(x,y,w,h);
+  }
+  
+  void moveLeft(){}
+  void moveRight(){}
+  void stopMoving(){}
+  void jump(){}
+  
+  void updateAnimation(){}
+}

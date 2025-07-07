@@ -28,9 +28,7 @@ class PantallaIntro extends Pantalla {
   }
   
   // ======== METODOS ========
-  
-  //dibuja los objetos que conforman la introduccion de
-  //la historia del juego
+
   public void dibujar() {
     dibujarFondo();
 
@@ -48,6 +46,10 @@ class PantallaIntro extends Pantalla {
     textSize(12);
     textAlign(RIGHT, BOTTOM);
     text("Haz clic para continuar...", width - 20, height - 10);
+    
+    
+     mostrarGuiaControles();
+    
   }
 
   public void mousePressed(float mx, float my) {
@@ -82,5 +84,22 @@ class PantallaIntro extends Pantalla {
   public void setCientifico(PImage nuevoCientifico){
     this.cientifico = nuevoCientifico;
   }
+  
+  private void mostrarGuiaControles() {
+    // Fondo del cuadro (opcional)
+    fill(0, 150); // semi-transparente
+    rect(width - 210, 20, 190, 130, 10); // x, y, w, h, radio
+
+    // Texto de controles
+    fill(255);
+    textAlign(LEFT);
+    textSize(14);
+    text("CONTROLES:", width - 200, 40);
+    text("W - Mover arriba", width - 200, 60);
+    text("S - Mover abajo", width - 200, 80);
+    text("A - Mover izquierda", width - 200, 100);
+    text("D - Mover derecha", width - 200, 120);
+    text("ESPACIO - Disparar", width - 200, 140);
+  } 
   
 }

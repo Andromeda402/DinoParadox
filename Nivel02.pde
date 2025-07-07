@@ -28,6 +28,9 @@ class Nivel02 {
     
     mover();
     personaje.dibujar();
+    if (!personaje.isEspacioPresionado()) {
+  personaje.disparar();
+}
     
     
     spawnerMatriarca.actualizarMatriarca(personaje);

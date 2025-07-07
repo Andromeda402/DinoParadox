@@ -34,6 +34,9 @@ class Nivel01 {
 
     mover();
     personaje.dibujar();
+    if (!personaje.isEspacioPresionado()) {
+  personaje.disparar();
+}
 
     spawnerVelociraptor.actualizarVelociraptor();
     spawnerVelociraptor.dibujar();
@@ -43,9 +46,10 @@ class Nivel01 {
 
     spawnerTriceratops.actualizarTriceratops(personaje);
     spawnerTriceratops.dibujar();
+    
+   
 
-    for (Velociraptor velociraptor : this.spawnerVelociraptor.velociraptor) {
-      velociraptor.chocar(this.personaje, velociraptor);
+    
 
 
 
@@ -117,13 +121,14 @@ class Nivel01 {
         
       }
       
-    }
+    
     
 
     //contador para los dinosaurios eliminados por el jugador
     //se deben eliminar x cantidad de dinosaurios para llegar al siguiente nivel
     if (this.contadorEliminaciones >= 10) { 
       estadoJuego = MaquinaEstadosJuego.JUGANDO_NIVEL02;
+      pasarNivel2();
       println("¡Pasaste al Nivel 2 por eliminar " +contadorEliminaciones+ " dinosaurios!");
     }
     
@@ -146,10 +151,10 @@ class Nivel01 {
   public void keyPressed() {
 
     personaje.keyPressed();
-
-    if (key == ' ') { // espacio
+   
+    /*if (key == ' ') { // espacio
       personaje.disparar();
-    }
+    }*/
   }
 
   public void keyReleased() {
