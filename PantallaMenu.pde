@@ -1,11 +1,11 @@
 class PantallaMenu extends Pantalla {
-  
+
   // ======== ATRIBUTOS ========
-  
+
   private Boton botonJugar;
   private Boton botonSalir;
   private PImage cientifico;
-  
+
   // ======== CONSTRUCTOR ========
 
   public PantallaMenu(PImage fondo, PImage cientifico) {
@@ -14,9 +14,9 @@ class PantallaMenu extends Pantalla {
     botonJugar = new Boton("Jugar", width/2 - 75, 250, 150, 40);
     botonSalir = new Boton("Salir", width/2 - 75, 310, 150, 40);
   }
-  
+
   // ======== METODOS ========
-  
+
   //dibuja los objetos que conforman al menu
   public void dibujar() {
     dibujarFondo();
@@ -46,31 +46,30 @@ class PantallaMenu extends Pantalla {
       exit();
     }
   }
-  
+
   // ======== GETTERS & SETTERS ========
-  
-  public Boton getBotonJugar(){
+
+  public Boton getBotonJugar() {
     return botonJugar;
   }
-  
-  public void setBotonJugar(Boton nuevoBotonJugar){
+
+  public void setBotonJugar(Boton nuevoBotonJugar) {
     this.botonJugar = nuevoBotonJugar;
   }
-  
-  public Boton getBotonSalir(){
+
+  public Boton getBotonSalir() {
     return botonSalir;
   }
-  
-  public void setBotonSalir(Boton nuevoBotonSalir){
+
+  public void setBotonSalir(Boton nuevoBotonSalir) {
     this.botonSalir = nuevoBotonSalir;
   }
-  
-  public PImage getCientifico(){
+
+  public PImage getCientifico() {
     return cientifico;
   }
-  
-  public void setCientifico(PImage nuevoCientifico){
+
+  public void setCientifico(PImage nuevoCientifico) {
     this.cientifico = nuevoCientifico;
   }
-  
 }

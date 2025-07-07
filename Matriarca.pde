@@ -1,40 +1,41 @@
 class Matriarca extends Dinosaurio {
-  
+  // ======== ATRIBUTOS ========
+
   // ======== ANIMACION ========
   PImage sheet;
   int cols, rows, fw, fh;
-  int cur = 0; 
+  int cur = 0;
   int delay = 6;
   int counter = 0;
-  
+
   // ======== POSICION PARA DIBUJAR ========
   float x, y;
   boolean facingLeft = false;
 
-  // ======== ATRIBUTOS ========
+
   private Collider colliderMatriarca;
   private int tiempoSoltarFruta;
   private ArrayList<Fruta> fruta;
   private int limiteFruta;
-  
+
   // ======== CONSTRUCTOR CORREGIDO ========
   public Matriarca(PVector posicion, PVector tamanio, int vida, float velocidad, int danio, PImage sheet, int cols, int rows) {
     super(posicion, tamanio, vida, velocidad, danio);
-    
+
     this.fruta = new ArrayList<Fruta>();
     this.colliderMatriarca = new Collider(this.posicion, this.tamanio);
     this.limiteFruta = 35;
-    
+
     this.sheet = sheet;
     this.cols = cols;
     this.rows = rows;
     this.fw = sheet.width / cols;
     this.fh = sheet.height / rows;
-    
+
     this.x = posicion.x;
     this.y = posicion.y;
   }
-  
+
   // ======== DIBUJAR ========
   public void dibujar() {
     // dibuja las frutas primero
@@ -42,7 +43,7 @@ class Matriarca extends Dinosaurio {
       f.dibujar();
     }
 
-    
+
     counter++;
     if (counter >= delay) {
       counter = 0;
@@ -66,7 +67,7 @@ class Matriarca extends Dinosaurio {
     float dx = personaje.getPosicion().x - posicion.x;
     float dy = personaje.getPosicion().y - posicion.y;
     float distancia = dist(personaje.getPosicion().x, personaje.getPosicion().y, posicion.x, posicion.y);
-    
+
     // Dirección de sprite
     facingLeft = dx < 0;
 

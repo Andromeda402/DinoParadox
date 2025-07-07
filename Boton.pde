@@ -1,10 +1,10 @@
 class Boton {
-  
+
   // ======== ATRIBUTOS ========
-  
+
   private String etiqueta;
   private float x, y, w, h;
-  
+
   // ======== CONSTRUCTOR ========
 
   Boton(String etiqueta, float x, float y, float w, float h) {
@@ -14,9 +14,9 @@ class Boton {
     this.w = w;
     this.h = h;
   }
-  
+
   // ======== METODOS ========
-  
+
   //si el mouse esta sobre el boton pinta la figura de un color
   //y sino lo esta entonces se pintara de otro color
 
@@ -33,7 +33,7 @@ class Boton {
     textSize(20);
     text(etiqueta, x + w/2, y + h/2);
   }
-  
+
   // ======== GETTERS & SETTERS ========
 
   public boolean estaSobre(float mx, float my) {
@@ -47,6 +47,4 @@ class Boton {
   public void setEtiqueta(String nuevaEtiqueta) {
     this.etiqueta = nuevaEtiqueta;
   }
-  
-  
 }

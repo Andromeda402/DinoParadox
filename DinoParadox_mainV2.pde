@@ -25,7 +25,7 @@ PImage fondoNivel2;
 int nivelActual;
 
 PImage imgPantallaDerrota;
-PImage imgPantallaVictoria; 
+PImage imgPantallaVictoria;
 
 //musica
 import ddf.minim.*;
@@ -42,7 +42,7 @@ boolean musicaDerrotaReproducida = false;
 
 public void setup() {
   size(800, 600);
-  
+
   tiempoAnterior = millis();
 
 
@@ -50,17 +50,17 @@ public void setup() {
   triceSheet = loadImage("triceratops.png");
   matriarcaSheet = loadImage("matriarcaSheet.png");
   pteroSheet = loadImage("pterodactilo.png");
-  
- 
- 
-  
+
+
+
+
 
   fondoMenu = loadImage("fondo_menu.jpg");
   fondoIntro = loadImage("fondo_intro.jpg");
   cientifico = loadImage("cientifico2.jpeg");
   cientifico.resize(100, 0);
   spritePersonaje = loadImage("Personaje.png");//esto agregue
-  
+
   //fondo nivel
   fondoNivel1 = loadImage("fondoNivel1.png");
   fondoNivel2 = loadImage("fondoNivel2.png");
@@ -78,14 +78,14 @@ public void setup() {
   nivel02 = new Nivel02(spritePersonaje);
 
   estadoJuego = MaquinaEstadosJuego.MENU;
-  
-  
-  
+
+
+
   imgPantallaDerrota = loadImage("fondo_derrota.jpg");
   imgPantallaVictoria = loadImage("fondo_victoria.jpg");
-  
+
   //musica
-  
+
   minim = new Minim(this);
   // Cargar música desde la carpeta data
   musicaMenu = minim.loadFile("musica_menu.mp3");
@@ -93,21 +93,19 @@ public void setup() {
   musicaNivel2 = minim.loadFile("musica_nivel2.mp3");
   musicaVictoria = minim.loadFile("victoria.mp3");
   musicaDerrota = minim.loadFile("derrota.mp3");
-
-
 }
 
 
 
 public void draw() {
-  
+
   tiempoActual = millis();
   deltaTime = (tiempoActual - tiempoAnterior) / 1000.0; //segundos
   tiempoAnterior = tiempoActual;
   background(0);
-  
+
   switch(estadoJuego) {
-  
+
   case MaquinaEstadosJuego.MENU:
     musicaVictoriaReproducida = false;
     musicaDerrotaReproducida = false;
@@ -140,58 +138,57 @@ public void draw() {
     break;
 
   case MaquinaEstadosJuego.VICTORIA:
-  if (musicaMenu.isPlaying()) musicaMenu.pause();
-  if (musicaNivel1.isPlaying()) musicaNivel1.pause();
-  if (musicaNivel2.isPlaying()) musicaNivel2.pause();
+    if (musicaMenu.isPlaying()) musicaMenu.pause();
+    if (musicaNivel1.isPlaying()) musicaNivel1.pause();
+    if (musicaNivel2.isPlaying()) musicaNivel2.pause();
 
-  if (musicaVictoria != null && !musicaVictoriaReproducida) {
-    musicaVictoria.rewind();
-    musicaVictoria.play();
-    musicaVictoriaReproducida = true;
-  }
-  
-  imageMode(CORNER);
-  if (imgPantallaDerrota != null) {
-    image(imgPantallaVictoria, 0, 0, width, height);
-  } else {
-    // Backup por si la imagen no carga
-    background(#132B50);
-    fill(255);
-    textSize(44);
-    textAlign(CENTER);
-    text("GANADOR", width/2, height/2);
-  }
-  break;
+    if (musicaVictoria != null && !musicaVictoriaReproducida) {
+      musicaVictoria.rewind();
+      musicaVictoria.play();
+      musicaVictoriaReproducida = true;
+    }
+
+    imageMode(CORNER);
+    if (imgPantallaDerrota != null) {
+      image(imgPantallaVictoria, 0, 0, width, height);
+    } else {
+      // Backup por si la imagen no carga
+      background(#132B50);
+      fill(255);
+      textSize(44);
+      textAlign(CENTER);
+      text("GANADOR", width/2, height/2);
+    }
+    break;
 
   case MaquinaEstadosJuego.DERROTA:
-  if (musicaMenu.isPlaying()) musicaMenu.pause();
-  if (musicaNivel1.isPlaying()) musicaNivel1.pause();
-  if (musicaNivel2.isPlaying()) musicaNivel2.pause();
+    if (musicaMenu.isPlaying()) musicaMenu.pause();
+    if (musicaNivel1.isPlaying()) musicaNivel1.pause();
+    if (musicaNivel2.isPlaying()) musicaNivel2.pause();
 
-  if (musicaDerrota != null && !musicaDerrotaReproducida) {
-    musicaDerrota.rewind();
-    musicaDerrota.play();
-    musicaDerrotaReproducida = true;
-  }
-  
-  imageMode(CORNER);
-  if (imgPantallaDerrota != null) {
-    image(imgPantallaDerrota, 0, 0, width, height);
-  } else {
-    // Backup por si la imagen no carga
-    background(#132B50);
-    fill(255);
-    textSize(44);
-    textAlign(CENTER);
-    text("FUERA DE COMBATE", width/2, height/2);
-  }
-  break;
-  
-  //musica
+    if (musicaDerrota != null && !musicaDerrotaReproducida) {
+      musicaDerrota.rewind();
+      musicaDerrota.play();
+      musicaDerrotaReproducida = true;
+    }
+
+    imageMode(CORNER);
+    if (imgPantallaDerrota != null) {
+      image(imgPantallaDerrota, 0, 0, width, height);
+    } else {
+      // Backup por si la imagen no carga
+      background(#132B50);
+      fill(255);
+      textSize(44);
+      textAlign(CENTER);
+      text("FUERA DE COMBATE", width/2, height/2);
+    }
+    break;
+
+    //musica
   default:
     detenerTodas();
     break;
-
   }
 }
 
@@ -208,7 +205,7 @@ public void jugando02() {
 
 public void dibujarFondo() {
   imageMode(CORNER);
-  
+
   if (nivelActual == 1) {
     image(fondoNivel1, 0, 0, width, height);
   } else if (nivelActual == 2) {
@@ -218,7 +215,7 @@ public void dibujarFondo() {
   }
 }
 
-public void pasarNivel2(){
+public void pasarNivel2() {
   nivelActual = 2;
 }
 
@@ -248,11 +245,11 @@ void mousePressed() {
   } else if (estadoJuego == MaquinaEstadosJuego.INTRO) {
     pantallaIntro.mousePressed(mouseX, mouseY);
   }
-}  
- void reproducirMusica(AudioPlayer musica) {
+}
+void reproducirMusica(AudioPlayer musica) {
   if (!musica.isPlaying()) {
-    if(musica != musicaVictoria && musica!= musicaDerrota){
-    detenerTodas();
+    if (musica != musicaVictoria && musica!= musicaDerrota) {
+      detenerTodas();
     }
     musica.rewind();
     musica.loop(); // o .play() si no querés que se repita

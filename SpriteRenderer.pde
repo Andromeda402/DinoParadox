@@ -1,7 +1,7 @@
 class SpriteRenderer {
-  
+
   // ======== ATRIBUTOS ========
-  
+
   private PImage spriteSheet;
 
   private int anchoFrame;
@@ -14,9 +14,9 @@ class SpriteRenderer {
 
   private GameObject objeto;
   private boolean hayImagen;
-  
+
   // ======== CONSTRUCTOR ========
-  
+
   public SpriteRenderer(GameObject objeto) {
     this.objeto = objeto;
 
@@ -29,24 +29,24 @@ class SpriteRenderer {
 
     this.hayImagen = false;
   }
-  
+
   // ======== METODOS ========
 
   // Cargar imagen del sprite sheet
- /* public void cambiarImagen(PImage nuevaImagen) {
-    this.spriteSheet = nuevaImagen;
-    this.columnas = spriteSheet.width / anchoFrame;
-    this.hayImagen = true;
-    this.frameActual = 0;
-    this.contadorFrames = 0;
-  }*/
+  /* public void cambiarImagen(PImage nuevaImagen) {
+   this.spriteSheet = nuevaImagen;
+   this.columnas = spriteSheet.width / anchoFrame;
+   this.hayImagen = true;
+   this.frameActual = 0;
+   this.contadorFrames = 0;
+   }*/
   void cambiarImagen(PImage nuevaImagen) {
     if (nuevaImagen != null) {
       this.spriteSheet = nuevaImagen;
       this.columnas = spriteSheet.width / anchoFrame;  // Aquí NO va a dar error si la imagen existe
       this.hayImagen = true; // <-- ¡Faltaba esto!
-    this.frameActual = 0;
-    this.contadorFrames = 0;
+      this.frameActual = 0;
+      this.contadorFrames = 0;
     } else {
       println("ERROR: La imagen es null, revisa que esté en la carpeta data y el nombre sea correcto.");
     }
@@ -124,79 +124,78 @@ class SpriteRenderer {
       contadorFrames = 0;
     }
   }
-  
+
   // ======== GETTERS & SETTERS ========
-  
-  public PImage getSpriteSheet(){
+
+  public PImage getSpriteSheet() {
     return spriteSheet;
   }
-  
-  public void setSpriteSheet(PImage nuevoSpriteSheet){
+
+  public void setSpriteSheet(PImage nuevoSpriteSheet) {
     this.spriteSheet = nuevoSpriteSheet;
   }
-  
-  public int getAnchoFrame(){
+
+  public int getAnchoFrame() {
     return anchoFrame;
   }
-  
-  public void setAnchoFrame(int nuevoAnchoFrame){
+
+  public void setAnchoFrame(int nuevoAnchoFrame) {
     this.anchoFrame = nuevoAnchoFrame;
   }
-  
-  public int getAltoSheet(){
+
+  public int getAltoSheet() {
     return altoFrame;
   }
-  
-  public void setAltoSheet(int nuevoAltoFrame){
+
+  public void setAltoSheet(int nuevoAltoFrame) {
     this.altoFrame = nuevoAltoFrame;
   }
-  
-  public int getColumnas(){
+
+  public int getColumnas() {
     return columnas;
   }
-  
-  public void setColumnas(int nuevaColumna){
+
+  public void setColumnas(int nuevaColumna) {
     this.columnas = nuevaColumna;
   }
-  
-  public int getFrameActual(){
+
+  public int getFrameActual() {
     return frameActual;
   }
-  
-  public void setFrameActual(int nuevoFrameActual){
+
+  public void setFrameActual(int nuevoFrameActual) {
     this.frameActual = nuevoFrameActual;
   }
-  
-  public int getContadorFrames(){
+
+  public int getContadorFrames() {
     return contadorFrames;
   }
-  
-  public void setContadorFrames(int nuevoContadorFrames){
+
+  public void setContadorFrames(int nuevoContadorFrames) {
     this.contadorFrames = nuevoContadorFrames;
   }
-  
-  public int getVelocidadAnimacion(){
+
+  public int getVelocidadAnimacion() {
     return velocidadAnimacion;
   }
-  
-  public void setVelocidadAnimacion(int nuevaVelocidadAnimacion){
+
+  public void setVelocidadAnimacion(int nuevaVelocidadAnimacion) {
     this.velocidadAnimacion = nuevaVelocidadAnimacion;
   }
 
-  public GameObject getObjeto(){
+  public GameObject getObjeto() {
     return objeto;
   }
-  
-  public void setObjeto(GameObject nuevoObjeto){
+
+  public void setObjeto(GameObject nuevoObjeto) {
     this.objeto = nuevoObjeto;
   }
-  
-  public Boolean getHayImagen(){
+
+  public Boolean getHayImagen() {
     return hayImagen;
   }
-  
-  public void setHayImagen(Boolean nuevoHayImagen){
+
+  public void setHayImagen(Boolean nuevoHayImagen) {
     this.hayImagen = nuevoHayImagen;
   }
-  
 }

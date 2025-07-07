@@ -1,5 +1,5 @@
 class Fruta extends GameObject {
-  
+
   // ======== ATRIBUTOS ========
 
   private float velocidad;
@@ -8,7 +8,7 @@ class Fruta extends GameObject {
   private Collider colliderFruta;
   private float duracion;
   private PVector direccion;
-  
+
   // ======== CONSTRUCTOR ========
 
   public Fruta(PVector posicion, PVector tamanio) {
@@ -20,7 +20,7 @@ class Fruta extends GameObject {
 
     this.direccion = new PVector(random(-1, 1), random(-1, 1));
   }
-  
+
   // ======== METODOS ========
 
   public void dibujar() {
@@ -30,11 +30,11 @@ class Fruta extends GameObject {
   }
 
   public void mover(int tipoMovimiento) {
-    
+
     //se utliza la estructura selectiva switch para
     //integrar otros comportamientos mas adelante
     switch(tipoMovimiento) {
-      
+
       //la fruta se mueve de arriba hacia abajo
     case 1:
       {
@@ -51,7 +51,7 @@ class Fruta extends GameObject {
 
   //metodo dedicado a el jefe final
   public void moverMultiples() {
-    
+
     //se mueve en diferente direcciones y va perdiendo su duracion
     this.posicion.x += this.direccion.x * this.velocidad * deltaTime;
     this.posicion.y += this.direccion.y * this.velocidad * deltaTime;
@@ -69,7 +69,7 @@ class Fruta extends GameObject {
       this.detonar = true;
     }
   }
-  
+
   // ======== GETTERS & SETTERS ========
 
   public float getVelocidad() {
