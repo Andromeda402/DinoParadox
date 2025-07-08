@@ -20,8 +20,8 @@ class SpriteRenderer {
   public SpriteRenderer(GameObject objeto) {
     this.objeto = objeto;
 
-    this.anchoFrame = 32;
-    this.altoFrame = 32;
+    this.anchoFrame = 60;
+    this.altoFrame = 82;
 
     this.velocidadAnimacion = 6; // menor = mas rapido
     this.frameActual = 0;

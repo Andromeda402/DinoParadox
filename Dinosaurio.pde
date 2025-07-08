@@ -19,7 +19,7 @@ class Dinosaurio extends GameObject {
 
   //dibuja a los dinosaurios utilizando ellipse
   public void dibujar() {
-    fill(#144006);
+    fill(#144006, 0); //0 es transparente
     noStroke();
     //ellipse(posicion.x, posicion.y, tamanio.x, tamanio.y);
     ellipse(getPosicion().x, getPosicion().y, getTamanio().x, getTamanio().y);

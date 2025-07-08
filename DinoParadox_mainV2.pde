@@ -59,8 +59,8 @@ public void setup() {
   fondoIntro = loadImage("fondo_intro.jpg");
   cientifico = loadImage("cientifico2.jpeg");
   cientifico.resize(100, 0);
-  spritePersonaje = loadImage("Personaje.png");//esto agregue
-
+  
+  spritePersonaje = loadImage("Personaje.jpeg");
   //fondo nivel
   fondoNivel1 = loadImage("fondoNivel1.png");
   fondoNivel2 = loadImage("fondoNivel2.png");
