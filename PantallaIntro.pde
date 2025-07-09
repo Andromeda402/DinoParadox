@@ -1,7 +1,7 @@
 class PantallaIntro extends Pantalla {
-
+  
   // ======== ATRIBUTOS ========
-
+  
   private String[] historia = {
     "Escuchen con atención...",
     "El mundo terminó con un rugido, no con un suspiro...",
@@ -16,17 +16,17 @@ class PantallaIntro extends Pantalla {
     "El camino es peligroso, pero confío en ellos.",
     "Porque sólo los que poseen un alma pueden cambiar el destino de este mundo."
   };
-
+  
   private int lineaActual = 0;
   private PImage cientifico;
-
+  
   // ======== CONSTRUCTOR ========
 
   public PantallaIntro(PImage fondo, PImage cientifico) {
     super(fondo);
     this.cientifico = cientifico;
   }
-
+  
   // ======== METODOS ========
 
   public void dibujar() {
@@ -46,9 +46,10 @@ class PantallaIntro extends Pantalla {
     textSize(12);
     textAlign(RIGHT, BOTTOM);
     text("Haz clic para continuar...", width - 20, height - 10);
-
-
-    mostrarGuiaControles();
+    
+    
+     mostrarGuiaControles();
+    
   }
 
   public void mousePressed(float mx, float my) {
@@ -57,33 +58,33 @@ class PantallaIntro extends Pantalla {
       estadoJuego = MaquinaEstadosJuego.JUGANDO_NIVEL01;
     }
   }
-
+  
   // ======== GETTERS & SETTERS ========
-
-  public String[] getHistoria() {
+  
+  public String[] getHistoria(){
     return historia;
   }
-
-  public void setHistoria(String[] nuevaHistoria) {
+  
+  public void setHistoria(String[] nuevaHistoria){
     this.historia = nuevaHistoria;
   }
-
-  public int getLineaActual() {
+  
+  public int getLineaActual(){
     return lineaActual;
   }
-
-  public void setLineaActual(int nuevaLineaActual) {
+  
+  public void setLineaActual(int nuevaLineaActual){
     this.lineaActual = nuevaLineaActual;
   }
-
-  public PImage getCientifico() {
+  
+  public PImage getCientifico(){
     return cientifico;
   }
-
-  public void setCientifico(PImage nuevoCientifico) {
+  
+  public void setCientifico(PImage nuevoCientifico){
     this.cientifico = nuevoCientifico;
   }
-
+  
   private void mostrarGuiaControles() {
     // Fondo del cuadro (opcional)
     fill(0, 150); // semi-transparente
@@ -99,5 +100,6 @@ class PantallaIntro extends Pantalla {
     text("A - Mover izquierda", width - 200, 100);
     text("D - Mover derecha", width - 200, 120);
     text("ESPACIO - Disparar", width - 200, 140);
-  }
+  } 
+  
 }

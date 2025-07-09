@@ -1,5 +1,5 @@
 class SpawnerDinosaurio {
-
+  
   // ======== ATRIBUTOS ========
 
   private ArrayList<Velociraptor> velociraptor;
@@ -9,18 +9,18 @@ class SpawnerDinosaurio {
   private ArrayList<Pterodactilo> pterodactilo;
   private int tiempoRecargaP;
   private int contadorP;
-
+  
   private ArrayList<Triceratops> triceratops;
   private int tiempoRecargaT;
   private int contadorT;
-
+  
   private ArrayList<Matriarca> matriarca;
   private int tiempoRecargaM;
   private int contadorM;
   private boolean matriarcaGenerada;
-
+  
   // ======== CONSTRUCTOR ========
-
+  
   public SpawnerDinosaurio() {
     this.velociraptor = new ArrayList<Velociraptor>();
     this.pterodactilo = new ArrayList<Pterodactilo>();
@@ -31,15 +31,16 @@ class SpawnerDinosaurio {
     this.contadorV = 0;
     this.contadorP = 0;
     this.contadorT = 0;
-
+    
     this.matriarca = new ArrayList<Matriarca>();
     this.tiempoRecargaM = 100; //sin usar
     this.contadorM = 0; //sin usar
     this.matriarcaGenerada = false;
+    
   }
-
+  
   // ======== METODOS ========
-
+   
   //para cada dinosaurio de su propio tipo se dibuja el dinoaurio
   public void dibujar() {
     for (Velociraptor v : this.velociraptor) {
@@ -49,28 +50,29 @@ class SpawnerDinosaurio {
     for (Pterodactilo p : this.pterodactilo) {
       p.dibujar();
     }
-
+    
     for (Triceratops t : this.triceratops) {
       t.dibujar();
     }
-
+    
     for (Matriarca m : this.matriarca) {
       m.dibujar();
     }
+    
   }
 
   //generador de velociraptores
   public void generarVelociraptor() {
 
-    Velociraptor v = new Velociraptor(
+    Velociraptor v = new Velociraptor( 
       new PVector(0, random(300, height -50)), // posicion
       new PVector(60, 60), //tamanio
       2, // vida
       65, // velocidad
       1, // danio
       raptorSheet,
-      4, // columnas del spritesheet
-      5   // filas del spritesheet
+  4,  // columnas del spritesheet
+  5   // filas del spritesheet
       );
 
 
@@ -89,18 +91,18 @@ class SpawnerDinosaurio {
       60, // velocidad
       1, // danio
       pteroSheet,
-      3, // columnas del spritesheet
-      3  //filas
+  3,  // columnas del spritesheet
+  3  //filas
       );
 
     for (int i = 0; i < 8-1; i++) {
       pterodactilo.add(p);
     }
   }
-
+  
   //generador de triceratops
-  public void generarTriceratops() {
-
+  public void generarTriceratops(){
+    
     Triceratops t = new Triceratops(
       new PVector(0, random(300, height - 50)), // posicion
       new PVector(80, 80),
@@ -108,18 +110,18 @@ class SpawnerDinosaurio {
       10, // velocidad
       1, // danio
       triceSheet,
-      4, // columnas del spritesheet
-      5  //filas
+  4,  // columnas del spritesheet
+  5  //filas
       );
 
     for (int i = 0; i < 8-1; i++) {
       triceratops.add(t);
     }
   }
-
+  
   //generador de matriarca (una sola)
-  public void generarMatriarca() {
-
+  public void generarMatriarca(){
+    
     Matriarca m = new Matriarca(
       new PVector(0, random(300, height - 50)), // posicion
       new PVector(100, 100),
@@ -127,8 +129,8 @@ class SpawnerDinosaurio {
       5, // velocidad
       1, // danio
       matriarcaSheet,
-      4, // columnas del spritesheet
-      4   // filas del spritesheet
+  4,  // columnas del spritesheet
+  4   // filas del spritesheet
       );
 
     for (int i = 0; i < 1; i++) {
@@ -136,13 +138,13 @@ class SpawnerDinosaurio {
       println("Se creó una Matriarca");
     }
   }
+  
 
-
-  //para cada dinosaurio se utiliza un metodo actualizar
-  //para que se generen cada cierto tiempo y se
+  //para cada dinosaurio se utiliza un metodo actualizar 
+  //para que se generen cada cierto tiempo y se 
   //remuevan si ya no tienen vida
 
-  public void actualizarVelociraptor() {
+  public void actualizarVelociraptor(Personaje personaje) {
 
     //Velociraptor
     contadorV++;
@@ -157,8 +159,9 @@ class SpawnerDinosaurio {
       if (v != null) {
 
         v.mover();
+        v.chocar(personaje, v);
         if (v.conVida() == false) {
-
+          
           velociraptor.remove(i);
         }
       }
@@ -179,13 +182,13 @@ class SpawnerDinosaurio {
 
         p.mover(personaje, p);
         if (p.conVida() == false) {
-
+          
           pterodactilo.remove(i);
         }
       }
     }
   }
-
+  
   public void actualizarTriceratops(Personaje personaje) {
     //Triceratops
     contadorT++;
@@ -201,13 +204,13 @@ class SpawnerDinosaurio {
         t.mover(personaje, t);
         t.atacar(personaje);
         if (t.conVida() == false) {
-
+          
           triceratops.remove(i);
         }
       }
     }
   }
-
+  
   public void actualizarMatriarca(Personaje personaje) {
     //Triceratops
     contadorM++;
@@ -227,112 +230,114 @@ class SpawnerDinosaurio {
           matriarca.remove(i);
         }
       }
+      
     }
   }
-
+  
   // ======== GETTERS & SETTERS ========
-
-  public ArrayList getVelociraptor() {
+  
+  public ArrayList getVelociraptor(){
     return velociraptor;
   }
-
-  public void setVelociraptor(ArrayList nuevoVelociraptor) {
+  
+  public void setVelociraptor(ArrayList nuevoVelociraptor){
     this.velociraptor = nuevoVelociraptor;
   }
-
-  public int getTiempoRecargaV() {
+  
+  public int getTiempoRecargaV(){
     return tiempoRecargaV;
   }
-
-  public void setTiempoRecargaV(int nuevoTiempoRecargaV) {
+  
+  public void setTiempoRecargaV(int nuevoTiempoRecargaV){
     this.tiempoRecargaV = nuevoTiempoRecargaV;
   }
-
-  public int getContadorV() {
+  
+  public int getContadorV(){
     return contadorV;
   }
-
-  public void setContadorV(int nuevoContadorV) {
+  
+  public void setContadorV(int nuevoContadorV){
     this.contadorV = nuevoContadorV;
   }
-
-  public ArrayList getPterodactilo() {
+  
+  public ArrayList getPterodactilo(){
     return pterodactilo;
   }
-
-  public void setPterodactilo(ArrayList nuevoPterodactilo) {
+  
+  public void setPterodactilo(ArrayList nuevoPterodactilo){
     this.pterodactilo = nuevoPterodactilo;
   }
-
-  public int getTiempoRecargaP() {
+  
+  public int getTiempoRecargaP(){
     return tiempoRecargaP;
   }
-
-  public void setTiempoRecargaP(int nuevoTiempoRecargaP) {
+  
+  public void setTiempoRecargaP(int nuevoTiempoRecargaP){
     this.tiempoRecargaP = nuevoTiempoRecargaP;
   }
-
-  public int getContadorP() {
+  
+  public int getContadorP(){
     return contadorP;
   }
-
-  public void setContadorP(int nuevoContadorP) {
+  
+  public void setContadorP(int nuevoContadorP){
     this.contadorP = nuevoContadorP;
   }
-
-  public ArrayList getTriceratops() {
+  
+  public ArrayList getTriceratops(){
     return triceratops;
   }
-
-  public void setTriceratops(ArrayList nuevoTriceratops) {
+  
+  public void setTriceratops(ArrayList nuevoTriceratops){
     this.triceratops = nuevoTriceratops;
   }
-
-  public int getTiempoRecargaT() {
+  
+  public int getTiempoRecargaT(){
     return tiempoRecargaT;
   }
-
-  public void setTiempoRecargaT(int nuevoTiempoRecargaT) {
+  
+  public void setTiempoRecargaT(int nuevoTiempoRecargaT){
     this.tiempoRecargaT = nuevoTiempoRecargaT;
   }
-
-  public int getContadorT() {
+  
+  public int getContadorT(){
     return contadorT;
   }
-
-  public void setContadorT(int nuevoContadorT) {
+  
+  public void setContadorT(int nuevoContadorT){
     this.contadorT = nuevoContadorT;
   }
-
-  public ArrayList getMatriarca() {
+  
+  public ArrayList getMatriarca(){
     return matriarca;
   }
-
-  public void setMatriarca(ArrayList nuevaMatriarca) {
+  
+  public void setMatriarca(ArrayList nuevaMatriarca){
     this.matriarca = nuevaMatriarca;
   }
-
-  public int getTiempoRecargaM() {
+  
+  public int getTiempoRecargaM(){
     return tiempoRecargaM;
   }
-
-  public void setTiempoRecargaM(int nuevoTiempoRecargaM) {
+  
+  public void setTiempoRecargaM(int nuevoTiempoRecargaM){
     this.tiempoRecargaM = nuevoTiempoRecargaM;
   }
-
-  public int getContadorM() {
+  
+  public int getContadorM(){
     return contadorT;
   }
-
-  public void setContadorM(int nuevoContadorM) {
+  
+  public void setContadorM(int nuevoContadorM){
     this.contadorM = nuevoContadorM;
   }
-
-  public boolean getMatriarcaGenerada() {
+  
+  public boolean getMatriarcaGenerada(){
     return matriarcaGenerada;
   }
-
-  public void setMatriarcaGenerada(boolean nuevaMatriarcaGenerada) {
+  
+  public void setMatriarcaGenerada(boolean nuevaMatriarcaGenerada){
     this.matriarcaGenerada = nuevaMatriarcaGenerada;
   }
+  
 }
